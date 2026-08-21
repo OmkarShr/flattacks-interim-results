@@ -1,15 +1,19 @@
 {
-  "version": "2026-08-21-verified-development",
+  "version": "2026-08-21-verified-development-v2",
   "title": "FLattacks non-LAMP verified development results",
   "scope": "Eight seed-0 development aggregates; not final held-out estimates",
-  "evidence_sha256": "0f152be5047225a8c6c442d685613d4ababcff723811950ecb3c87c582f9ba97",
+  "confirmed_results_source_sha256": "0f152be5047225a8c6c442d685613d4ababcff723811950ecb3c87c582f9ba97",
+  "duplicate_replay_sha256": "5a4f44eed1b3cd0a353797c316ce6a6ee8e516dd87dda777ea31fa34400c2a01",
   "verification": {
     "cells": 8,
     "method_runs": 24,
     "successful_runs": 24,
-    "gradient_files_byte_identical": "28/28 across seven replayed legacy cells",
-    "prediction_payloads_identical": "21/21 across seven replayed legacy cells",
-    "metric_dictionaries_identical": "21/21 across seven replayed legacy cells",
+    "gradient_files_byte_identical": "32/32 across eight duplicate-run pairs",
+    "prediction_payloads_identical": "24/24 across eight duplicate-run pairs",
+    "metric_dictionaries_identical": "24/24 across eight duplicate-run pairs",
+    "assignments_identical": "24/24 across eight duplicate-run pairs",
+    "prediction_claim_integrity": "24/24",
+    "receipt_claim_integrity": "24/24",
     "quality_gate": "57 tests; Ruff, formatting, mypy passed"
   },
   "cells": [

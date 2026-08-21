@@ -1,0 +1,928 @@
+{
+  "schema": "flbench-all8-duplicate-replay-v1",
+  "cells": [
+    {
+      "model": "Pythia-160m",
+      "N": 1,
+      "B": 1,
+      "M": 1,
+      "S": 64,
+      "run_ids": [
+        "pilot-EleutherAI-pythia-160m-M1-S64",
+        "verify-EleutherAI-pythia-160m-N1-B1-M1-S64"
+      ],
+      "report_sha256": [
+        "a57136c543a66138b4b26d014214f6f0a4b3639943e58be884260a33eeffad2a",
+        "730283cd164efa6176f19ea9b12e14e035d85773711f25ca33c6ebf4c2fb9313"
+      ],
+      "active_target_count_equal": true,
+      "loss_equal": true,
+      "canonical_artifact_ids_equal": false,
+      "artifacts": {
+        "canonical": {
+          "sha256": [
+            "a93d217a9eed3b358c0f1c8249afd05e81fe238ac5f1e675b4a29d086241c41a",
+            "a93d217a9eed3b358c0f1c8249afd05e81fe238ac5f1e675b4a29d086241c41a"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            649308696,
+            649308696
+          ]
+        },
+        "views/dager": {
+          "sha256": [
+            "66b30d6b6536bdf99e1ee1753bd4cd8cc16ce2ebfc4a7e966f0e1cfb61e38031",
+            "66b30d6b6536bdf99e1ee1753bd4cd8cc16ce2ebfc4a7e966f0e1cfb61e38031"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            14156024,
+            14156024
+          ]
+        },
+        "views/film": {
+          "sha256": [
+            "4ec4757c7aa9d26d6c89fb0d4896548a0e0f3fe6d82a570a323becf684feae4d",
+            "4ec4757c7aa9d26d6c89fb0d4896548a0e0f3fe6d82a570a323becf684feae4d"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            154533992,
+            154533992
+          ]
+        },
+        "views/v2": {
+          "sha256": [
+            "722d94937b0acf80df6dcb787c0cd392343329030e3ea04e89d2b720d5359646",
+            "722d94937b0acf80df6dcb787c0cd392343329030e3ea04e89d2b720d5359646"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            309067976,
+            309067976
+          ]
+        }
+      },
+      "methods": {
+        "dager": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "film": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "v2": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        }
+      }
+    },
+    {
+      "model": "Pythia-160m",
+      "N": 2,
+      "B": 2,
+      "M": 4,
+      "S": 64,
+      "run_ids": [
+        "pilot-EleutherAI-pythia-160m-M4-S64",
+        "verify-EleutherAI-pythia-160m-N2-B2-M4-S64"
+      ],
+      "report_sha256": [
+        "73a94f527e03779c1f70cd8670663ad0989e604783430d8999f6368daa12402e",
+        "021f1789ac3fe8fb28772465331c4d57b06cf149741bee4dc6247d8b566622b1"
+      ],
+      "active_target_count_equal": true,
+      "loss_equal": true,
+      "canonical_artifact_ids_equal": false,
+      "artifacts": {
+        "canonical": {
+          "sha256": [
+            "ac29ecd5da1190d5fd30fdce7593faba01d298aacc0b99e962cf7f9c847f887d",
+            "ac29ecd5da1190d5fd30fdce7593faba01d298aacc0b99e962cf7f9c847f887d"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            649308696,
+            649308696
+          ]
+        },
+        "views/dager": {
+          "sha256": [
+            "b1c632624d565de9a284d5f29dd7697b1d9353f95b60477730f7c5b5cee4e6fc",
+            "b1c632624d565de9a284d5f29dd7697b1d9353f95b60477730f7c5b5cee4e6fc"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            14156024,
+            14156024
+          ]
+        },
+        "views/film": {
+          "sha256": [
+            "4eae93f7157d803e7753c7cfe00d89796277033317df8660505829810e259877",
+            "4eae93f7157d803e7753c7cfe00d89796277033317df8660505829810e259877"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            154533992,
+            154533992
+          ]
+        },
+        "views/v2": {
+          "sha256": [
+            "4db2768ffb5f3bf0246f0929d2d7259b8fa89e03df830c08c0e92002ec9a856e",
+            "4db2768ffb5f3bf0246f0929d2d7259b8fa89e03df830c08c0e92002ec9a856e"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            309067976,
+            309067976
+          ]
+        }
+      },
+      "methods": {
+        "dager": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "film": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "v2": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        }
+      }
+    },
+    {
+      "model": "Pythia-160m",
+      "N": 4,
+      "B": 2,
+      "M": 8,
+      "S": 128,
+      "run_ids": [
+        "pilot-EleutherAI-pythia-160m-M8-S128",
+        "verify-EleutherAI-pythia-160m-N4-B2-M8-S128"
+      ],
+      "report_sha256": [
+        "7ca1d5e295d25577147a1cd8b53506d1b318b508238448e3d02bbb1f6d3d8c9c",
+        "71be743613a4ef69abb647ae018f19afb3ffbfb4a09c2c05f76467871af603f4"
+      ],
+      "active_target_count_equal": true,
+      "loss_equal": true,
+      "canonical_artifact_ids_equal": false,
+      "artifacts": {
+        "canonical": {
+          "sha256": [
+            "f1c47953ee23bc7cb91f3b97e9a4aa4afce51a2e2b1f10add2ee1a6459b4efb1",
+            "f1c47953ee23bc7cb91f3b97e9a4aa4afce51a2e2b1f10add2ee1a6459b4efb1"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            649308696,
+            649308696
+          ]
+        },
+        "views/dager": {
+          "sha256": [
+            "423c6c1f63dd6ea5310ebced5666f1dfd6c246841d932dc568f62c9685d5685c",
+            "423c6c1f63dd6ea5310ebced5666f1dfd6c246841d932dc568f62c9685d5685c"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            14156024,
+            14156024
+          ]
+        },
+        "views/film": {
+          "sha256": [
+            "f8900fec7ccf1cc23f1fb60e60283629ab1062a2fb55d810e3f793c2abeff390",
+            "f8900fec7ccf1cc23f1fb60e60283629ab1062a2fb55d810e3f793c2abeff390"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            154533992,
+            154533992
+          ]
+        },
+        "views/v2": {
+          "sha256": [
+            "e9a05352a425825588dd6c36d6dc082287a10d62aff21522e6044ff38737ca56",
+            "e9a05352a425825588dd6c36d6dc082287a10d62aff21522e6044ff38737ca56"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            309067976,
+            309067976
+          ]
+        }
+      },
+      "methods": {
+        "dager": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "film": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "v2": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        }
+      }
+    },
+    {
+      "model": "Pythia-160m",
+      "N": 16,
+      "B": 2,
+      "M": 32,
+      "S": 64,
+      "run_ids": [
+        "pilot-EleutherAI-pythia-160m-M32-S64",
+        "verify-EleutherAI-pythia-160m-N16-B2-M32-S64"
+      ],
+      "report_sha256": [
+        "f35e97e2229bc1b05bf4e54fd1f2c2ddc112b6a2b4f4c80217db4244d1bd11c8",
+        "b0e4bad8a09c46162b968802b69433b519415a2be31926db1a6c7c133cb01603"
+      ],
+      "active_target_count_equal": true,
+      "loss_equal": true,
+      "canonical_artifact_ids_equal": false,
+      "artifacts": {
+        "canonical": {
+          "sha256": [
+            "f2cb0c8ef2b65b385834f6ed38bd55eff5df965bf45037ca473b8eef6c1062e5",
+            "f2cb0c8ef2b65b385834f6ed38bd55eff5df965bf45037ca473b8eef6c1062e5"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            649308696,
+            649308696
+          ]
+        },
+        "views/dager": {
+          "sha256": [
+            "c45388b3c9739ab63a4a38d6cbc20fcc7653ae0fea236a92516e7352a5886a40",
+            "c45388b3c9739ab63a4a38d6cbc20fcc7653ae0fea236a92516e7352a5886a40"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            14156024,
+            14156024
+          ]
+        },
+        "views/film": {
+          "sha256": [
+            "b3558d76b8e6a4713823a88a290a5de6350e628a0a492980f95ca388d8c926a6",
+            "b3558d76b8e6a4713823a88a290a5de6350e628a0a492980f95ca388d8c926a6"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            154533992,
+            154533992
+          ]
+        },
+        "views/v2": {
+          "sha256": [
+            "38c5a624c5a21d7da0b9b8262e29b55e988ea7bcfd7edafed765e4a9c4a3a6d7",
+            "38c5a624c5a21d7da0b9b8262e29b55e988ea7bcfd7edafed765e4a9c4a3a6d7"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            309067976,
+            309067976
+          ]
+        }
+      },
+      "methods": {
+        "dager": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "film": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "v2": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        }
+      }
+    },
+    {
+      "model": "Pythia-410m",
+      "N": 1,
+      "B": 1,
+      "M": 1,
+      "S": 64,
+      "run_ids": [
+        "pilot-EleutherAI-pythia-410m-M1-S64",
+        "verify-EleutherAI-pythia-410m-N1-B1-M1-S64"
+      ],
+      "report_sha256": [
+        "486fdda3645d1a1b226fbe38ed9bc4f97553ef5eef056cecb5d7d3d361b4e7d2",
+        "da2eeb4dc729b0720d2b96028bf26a2cafce6df4bd61bb5d2c0a798b376daf2d"
+      ],
+      "active_target_count_equal": true,
+      "loss_equal": true,
+      "canonical_artifact_ids_equal": false,
+      "artifacts": {
+        "canonical": {
+          "sha256": [
+            "4c820705c8788ae9d42d2a293505564f18743dd3ba78f4ba8f2334c67a1b0cf7",
+            "4c820705c8788ae9d42d2a293505564f18743dd3ba78f4ba8f2334c67a1b0cf7"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            1621370192,
+            1621370192
+          ]
+        },
+        "views/dager": {
+          "sha256": [
+            "5fd0b298f87f23709c456acd3f80e772deec2babcd43d856f53803740d5c4817",
+            "5fd0b298f87f23709c456acd3f80e772deec2babcd43d856f53803740d5c4817"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            25166080,
+            25166080
+          ]
+        },
+        "views/film": {
+          "sha256": [
+            "3343d6eb4ef216146964f6c39fc42b8fb883df4cfc56be98d5ca75cb80c9b4d1",
+            "3343d6eb4ef216146964f6c39fc42b8fb883df4cfc56be98d5ca75cb80c9b4d1"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            206045288,
+            206045288
+          ]
+        },
+        "views/v2": {
+          "sha256": [
+            "a5ac69c69655ebfbf5fdbfe2b340ae32d28956f82d02c2974b8383874bafa8e8",
+            "a5ac69c69655ebfbf5fdbfe2b340ae32d28956f82d02c2974b8383874bafa8e8"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            412090568,
+            412090568
+          ]
+        }
+      },
+      "methods": {
+        "dager": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "film": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "v2": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        }
+      }
+    },
+    {
+      "model": "Pythia-410m",
+      "N": 4,
+      "B": 1,
+      "M": 4,
+      "S": 128,
+      "run_ids": [
+        "pilot-EleutherAI-pythia-410m-M4-S128",
+        "verify-EleutherAI-pythia-410m-N4-B1-M4-S128"
+      ],
+      "report_sha256": [
+        "dfba962d39662b7110c5beed94d4ad80249423c80843fad364557cd064faab09",
+        "aa8cdec9d223163f5fee420f5769057abee7d92d2915e0f3d2aebc11cf40a611"
+      ],
+      "active_target_count_equal": true,
+      "loss_equal": true,
+      "canonical_artifact_ids_equal": false,
+      "artifacts": {
+        "canonical": {
+          "sha256": [
+            "2c85cf49103fa6ccf431de3c9ce21ddd5f9ac098c189d63d05e7cf25620d1d0b",
+            "2c85cf49103fa6ccf431de3c9ce21ddd5f9ac098c189d63d05e7cf25620d1d0b"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            1621370192,
+            1621370192
+          ]
+        },
+        "views/dager": {
+          "sha256": [
+            "915de694a32dff7069ba1315c9cc5faf540bd3f27eaf2605407af61fcddafda3",
+            "915de694a32dff7069ba1315c9cc5faf540bd3f27eaf2605407af61fcddafda3"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            25166080,
+            25166080
+          ]
+        },
+        "views/film": {
+          "sha256": [
+            "92bf21a05a6b98de92abe9e2cf081bc348ab5933700874ae0c7c21c3d19fa52d",
+            "92bf21a05a6b98de92abe9e2cf081bc348ab5933700874ae0c7c21c3d19fa52d"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            206045288,
+            206045288
+          ]
+        },
+        "views/v2": {
+          "sha256": [
+            "e3e2bbe8d61c8256d864891e607cfbb2769cb0ac26899067dff50ae62a04bde3",
+            "e3e2bbe8d61c8256d864891e607cfbb2769cb0ac26899067dff50ae62a04bde3"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            412090568,
+            412090568
+          ]
+        }
+      },
+      "methods": {
+        "dager": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "film": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "v2": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        }
+      }
+    },
+    {
+      "model": "Pythia-410m",
+      "N": 4,
+      "B": 2,
+      "M": 8,
+      "S": 128,
+      "run_ids": [
+        "pilot-EleutherAI-pythia-410m-M8-S128",
+        "verify-EleutherAI-pythia-410m-N4-B2-M8-S128"
+      ],
+      "report_sha256": [
+        "2fa64743b759e6449970830aa4d03e2d3ba013fb3c0ec7b8608fa72f8af16764",
+        "54157c411ea29af9e0386a24d9d3c133c81d6f8428566f5e607c88e020538bf6"
+      ],
+      "active_target_count_equal": true,
+      "loss_equal": true,
+      "canonical_artifact_ids_equal": false,
+      "artifacts": {
+        "canonical": {
+          "sha256": [
+            "5486c0fa34b7de1c3905d009ca826bd7852fdc02f99db8c721e7202fb6a774ed",
+            "5486c0fa34b7de1c3905d009ca826bd7852fdc02f99db8c721e7202fb6a774ed"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            1621370192,
+            1621370192
+          ]
+        },
+        "views/dager": {
+          "sha256": [
+            "7f5bc757ce97619047cb5ed8c6975e30290a26dc7a75e2306705d303e30b5c19",
+            "7f5bc757ce97619047cb5ed8c6975e30290a26dc7a75e2306705d303e30b5c19"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            25166080,
+            25166080
+          ]
+        },
+        "views/film": {
+          "sha256": [
+            "07f055056466d5d817016b316fc983ff8108405344e7057e15095670032a8151",
+            "07f055056466d5d817016b316fc983ff8108405344e7057e15095670032a8151"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            206045288,
+            206045288
+          ]
+        },
+        "views/v2": {
+          "sha256": [
+            "05987bcad9ae23b1dd1f5503709493b0457cdd3726c8b5df35a0c4bdc320a79d",
+            "05987bcad9ae23b1dd1f5503709493b0457cdd3726c8b5df35a0c4bdc320a79d"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            412090568,
+            412090568
+          ]
+        }
+      },
+      "methods": {
+        "dager": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "film": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "v2": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        }
+      }
+    },
+    {
+      "model": "Pythia-410m",
+      "N": 8,
+      "B": 2,
+      "M": 16,
+      "S": 128,
+      "run_ids": [
+        "verify-EleutherAI-pythia-410m-N8-B2-M16-S128",
+        "verify2-EleutherAI-pythia-410m-N8-B2-M16-S128"
+      ],
+      "report_sha256": [
+        "681b22fd252f30e872f7b44250e7030da3d83988327229fe9bc1f7236e2dcbb4",
+        "e07ef9886ecd0d9fe99cfd45657f886278e6786a101b97bdbab5fcee2bd2d933"
+      ],
+      "active_target_count_equal": true,
+      "loss_equal": true,
+      "canonical_artifact_ids_equal": false,
+      "artifacts": {
+        "canonical": {
+          "sha256": [
+            "8b253ae2fc06eb3750145d2067f1f7b2681ee40a235a0371db5c6aef77542750",
+            "8b253ae2fc06eb3750145d2067f1f7b2681ee40a235a0371db5c6aef77542750"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            1621370192,
+            1621370192
+          ]
+        },
+        "views/dager": {
+          "sha256": [
+            "da78260716a28fc615d6cf246b4537e605775335f6eb9ca972dcf97ad4966b1f",
+            "da78260716a28fc615d6cf246b4537e605775335f6eb9ca972dcf97ad4966b1f"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            25166080,
+            25166080
+          ]
+        },
+        "views/film": {
+          "sha256": [
+            "b0cec55e0ae34f0851891f0263b05671a08415ca6c6e703a507e5bd7f5c9c941",
+            "b0cec55e0ae34f0851891f0263b05671a08415ca6c6e703a507e5bd7f5c9c941"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            206045288,
+            206045288
+          ]
+        },
+        "views/v2": {
+          "sha256": [
+            "2586b6f579b0fbee2dc654651112d6a5548ea7233aa9a37ff5d9a943de2af35e",
+            "2586b6f579b0fbee2dc654651112d6a5548ea7233aa9a37ff5d9a943de2af35e"
+          ],
+          "byte_equal": true,
+          "bytes": [
+            412090568,
+            412090568
+          ]
+        }
+      },
+      "methods": {
+        "dager": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "film": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        },
+        "v2": {
+          "prediction_claim_integrity": [
+            true,
+            true
+          ],
+          "receipt_claim_integrity": [
+            true,
+            true
+          ],
+          "output_sha_equal": false,
+          "receipt_sha_equal": false,
+          "semantic_prediction_equal": true,
+          "prediction_count_equal": true,
+          "metrics_equal": true,
+          "assignment_equal": true
+        }
+      }
+    }
+  ],
+  "summary": {
+    "cells": 8,
+    "gradient_files_equal": 32,
+    "semantic_predictions_equal": 24,
+    "metric_dicts_equal": 24,
+    "assignments_equal": 24,
+    "prediction_claim_integrity": 24,
+    "receipt_claim_integrity": 24,
+    "losses_equal": 8,
+    "target_counts_equal": 8
+  }
+}
