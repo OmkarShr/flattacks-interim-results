@@ -1,516 +1,569 @@
 {
-  "generated_from": "frozen development artifacts",
-  "git_commits": {
-    "non_lamp": "f552779",
-    "lamp": "106dd2e"
+  "version": "2026-08-21-verified-development",
+  "title": "FLattacks non-LAMP verified development results",
+  "scope": "Eight seed-0 development aggregates; not final held-out estimates",
+  "evidence_sha256": "0f152be5047225a8c6c442d685613d4ababcff723811950ecb3c87c582f9ba97",
+  "verification": {
+    "cells": 8,
+    "method_runs": 24,
+    "successful_runs": 24,
+    "gradient_files_byte_identical": "28/28 across seven replayed legacy cells",
+    "prediction_payloads_identical": "21/21 across seven replayed legacy cells",
+    "metric_dictionaries_identical": "21/21 across seven replayed legacy cells",
+    "quality_gate": "57 tests; Ruff, formatting, mypy passed"
   },
   "cells": [
     {
-      "model": "pythia-160m",
-      "cell": "M1S64",
-      "regime": "below",
+      "model": "Pythia-160m",
+      "model_id": "EleutherAI/pythia-160m",
+      "model_revision": "50f5173d932e8e61f858120bcb800b97af589f46",
+      "N": 1,
+      "B": 1,
       "M": 1,
       "S": 64,
-      "active_targets": 35,
+      "active_target_count": 35,
+      "victim_loss": 4.759815692901611,
+      "dager_rank": {
+        "basis_dimension": 31,
+        "numerical_rank": 35,
+        "rank_ratio": 0.045572916666666664,
+        "wall_designation": "below"
+      },
       "methods": {
         "dager": {
           "status": "success",
           "predictions": 2,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.9859154929577464,
-          "set_rouge_l": 0.6572769953051643,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.6666666666666666,
-          "extra_output_rate": 1.0,
-          "seconds": 8.58886492997408,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.9859154929577464,
+          "autonomous": {
+            "r1": 0.6572769953051643,
+            "r2": 0.6570048309178743,
+            "rl": 0.6572769953051643
+          },
+          "runtime_seconds": 12.133942165004555,
           "peak_gpu_gb": 1.975680512,
-          "rank": 35,
-          "basis": 31,
-          "wall": "below",
-          "output_sha256": "b98dcc9e1f6232d31f1d6780e6c1c040c378ddbb3c06163067602276dad9da99"
+          "output_sha256": "9deffe5f37ef19f52081d879a4f40c2ef4f7a328503bf17e4d6bb3941dede437"
         },
         "film": {
           "status": "success",
           "predictions": 8,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.28,
-          "set_rouge_l": 0.06222222222222222,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 7.0,
-          "seconds": 3.717735750018619,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.28,
+          "autonomous": {
+            "r1": 0.10222222222222221,
+            "r2": 0.08163265306122448,
+            "rl": 0.06222222222222222
+          },
+          "runtime_seconds": 21.50073919299757,
           "peak_gpu_gb": 1.982768128,
-          "rank": null,
-          "basis": null,
-          "wall": null,
-          "output_sha256": "a04aea04edccba34589246bb561134ddc29b576732539ef090d6334823a78a0c"
+          "output_sha256": "391e22b616df2c02476dadd072f7645c05a2fc50151f5b534925f801d4473cc7"
         },
         "v2": {
           "status": "success",
           "predictions": 12,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.19999999999999998,
-          "set_rouge_l": 0.03076923076923077,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 11.0,
-          "seconds": 11.242826742993202,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.19999999999999998,
+          "autonomous": {
+            "r1": 0.03076923076923077,
+            "r2": 0.024291497975708502,
+            "rl": 0.03076923076923077
+          },
+          "runtime_seconds": 11.505053155997302,
           "peak_gpu_gb": 3.70413824,
-          "rank": null,
-          "basis": null,
-          "wall": null,
-          "output_sha256": "f0dc584a30423cb212e7af57f1e019595c700924d7c6e0b370fe9d34c1eeeacc",
-          "oracle_rouge_l": 0.7999999999999999
+          "output_sha256": "e4090cd1ca0b28a60db32863ac4c9dbbc2317e5b6ac40483456ce4fc92e9d63c",
+          "truth_assisted": {
+            "r1": 0.9142857142857143,
+            "r2": 0.7941176470588236,
+            "rl": 0.7999999999999999
+          }
         }
       }
     },
     {
-      "model": "pythia-160m",
-      "cell": "M4S64",
-      "regime": "below",
+      "model": "Pythia-160m",
+      "model_id": "EleutherAI/pythia-160m",
+      "model_revision": "50f5173d932e8e61f858120bcb800b97af589f46",
+      "N": 2,
+      "B": 2,
       "M": 4,
       "S": 64,
-      "active_targets": 189,
+      "active_target_count": 189,
+      "victim_loss": 3.323692560195923,
+      "dager_rank": {
+        "basis_dimension": 136,
+        "numerical_rank": 189,
+        "rank_ratio": 0.24609375,
+        "wall_designation": "below"
+      },
       "methods": {
         "dager": {
           "status": "success",
           "predictions": 8,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.08324163709720625,
-          "set_rouge_l": 0.055494424731470836,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 1.0,
-          "seconds": 12.698128080985043,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.08324163709720625,
+          "autonomous": {
+            "r1": 0.055494424731470836,
+            "r2": 0.029007930303662013,
+            "rl": 0.055494424731470836
+          },
+          "runtime_seconds": 12.810416666965466,
           "peak_gpu_gb": 1.979355136,
-          "rank": 189,
-          "basis": 136,
-          "wall": "below",
-          "output_sha256": "f1127803ddff36ea2696a855fccd53f562942024399d4cf2a6851113a14d191d"
+          "output_sha256": "fb9d5f69f0da9869d90d436e37b913cf9ced58afd9c36b31a5947ec4a312e9df"
         },
         "film": {
           "status": "success",
           "predictions": 8,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.17031609195402297,
-          "set_rouge_l": 0.11354406130268199,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 1.0,
-          "seconds": 6.246934891038109,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.17031609195402297,
+          "autonomous": {
+            "r1": 0.20740626710454296,
+            "r2": 0.08563866130111841,
+            "rl": 0.11354406130268199
+          },
+          "runtime_seconds": 5.827293216018006,
           "peak_gpu_gb": 1.986442752,
-          "rank": null,
-          "basis": null,
-          "wall": null,
-          "output_sha256": "306c382308b18f8edc861444914c9fa443712860efe7e9a65f0943646959b434"
+          "output_sha256": "2bf1d2c847c2f007791457b0a9a60c9f9247d542e59d1756c595decaa24a666b"
         },
         "v2": {
           "status": "success",
           "predictions": 49,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.2381419234360411,
-          "set_rouge_l": 0.035945950707326965,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 11.25,
-          "seconds": 70.87042722100159,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.2381419234360411,
+          "autonomous": {
+            "r1": 0.035945950707326965,
+            "r2": 0.029953884655400276,
+            "rl": 0.035945950707326965
+          },
+          "runtime_seconds": 71.07492627797183,
           "peak_gpu_gb": 3.77204736,
-          "rank": null,
-          "basis": null,
-          "wall": null,
-          "output_sha256": "b3eb38b9db397b0121c967cc00e67af7a495eae4dcd38c85e5716ca9a3183bc2",
-          "oracle_rouge_l": 0.7795663092823336
+          "output_sha256": "2aecc81b959c96af3bab9626488ea4238d27163184efe03988b5e1bf618e4a6a",
+          "truth_assisted": {
+            "r1": 0.7975540686494033,
+            "r2": 0.6887550362610798,
+            "rl": 0.7795663092823336
+          }
         }
       }
     },
     {
-      "model": "pythia-160m",
-      "cell": "M8S128",
-      "regime": "nominal-above",
+      "model": "Pythia-160m",
+      "model_id": "EleutherAI/pythia-160m",
+      "model_revision": "50f5173d932e8e61f858120bcb800b97af589f46",
+      "N": 4,
+      "B": 2,
       "M": 8,
       "S": 128,
-      "active_targets": 388,
+      "active_target_count": 388,
+      "victim_loss": 3.3617093563079834,
+      "dager_rank": {
+        "basis_dimension": 259,
+        "numerical_rank": 387,
+        "rank_ratio": 0.50390625,
+        "wall_designation": "below"
+      },
       "methods": {
         "dager": {
           "status": "success",
           "predictions": 13,
           "support_f1": 0.9980657640232108,
-          "macro_rouge_l": 0.07149136260412238,
-          "set_rouge_l": 0.05446960960314086,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 0.625,
-          "seconds": 12.329175467020832,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.07149136260412238,
+          "autonomous": {
+            "r1": 0.05446960960314086,
+            "r2": 0.022459264112380643,
+            "rl": 0.05446960960314086
+          },
+          "runtime_seconds": 15.581613020971417,
           "peak_gpu_gb": 1.991170048,
-          "rank": 387,
-          "basis": 259,
-          "wall": "below",
-          "output_sha256": "39e148065b708935c3e2f1ee3403144bbd60b7320ee2de3125065bbf2bcf5392"
+          "output_sha256": "d0cd4a93cdf2c6a3ddd7e929c6e0f0f37ad62d91f09e0a191b3f46cee37c2a82"
         },
         "film": {
           "status": "success",
           "predictions": 8,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.13276801371520108,
-          "set_rouge_l": 0.13276801371520108,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 0.0,
-          "seconds": 19.748755578999408,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.13276801371520108,
+          "autonomous": {
+            "r1": 0.22760997336589547,
+            "r2": 0.052768947174567274,
+            "rl": 0.13276801371520108
+          },
+          "runtime_seconds": 17.373407520004548,
           "peak_gpu_gb": 2.01080832,
-          "rank": null,
-          "basis": null,
-          "wall": null,
-          "output_sha256": "9b98246db05a13b1d110e813ab7bcb9c551fb9a58c46c7d3a4868fefc336845e"
+          "output_sha256": "3abeba28d033f7cd3212d17c0fe30dda4f3143608deabd9aac8681daa1caafa0"
         },
         "v2": {
           "status": "success",
           "predictions": 101,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.2156897827668047,
-          "set_rouge_l": 0.031660885543751155,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 11.625,
-          "seconds": 141.14139930403326,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.2156897827668047,
+          "autonomous": {
+            "r1": 0.031660885543751155,
+            "r2": 0.026889038159193867,
+            "rl": 0.031660885543751155
+          },
+          "runtime_seconds": 137.2840442850138,
           "peak_gpu_gb": 4.298121728,
-          "rank": null,
-          "basis": null,
-          "wall": null,
-          "output_sha256": "efa6ceefb930c728effb2f53d1ecc0d9922fd48fdb4a9ee27da0dddb46737ce9",
-          "oracle_rouge_l": 0.760852231521675
+          "output_sha256": "6a8bcb7282667a7096c53cbb1d2ad1a633af971b4803df702dbfefebfd731146",
+          "truth_assisted": {
+            "r1": 0.7636300092994528,
+            "r2": 0.6305521901542106,
+            "rl": 0.760852231521675
+          }
         }
       }
     },
     {
-      "model": "pythia-160m",
-      "cell": "M32S64",
-      "regime": "deep-above/boundary",
+      "model": "Pythia-160m",
+      "model_id": "EleutherAI/pythia-160m",
+      "model_revision": "50f5173d932e8e61f858120bcb800b97af589f46",
+      "N": 16,
+      "B": 2,
       "M": 32,
       "S": 64,
-      "active_targets": 1462,
+      "active_target_count": 1462,
+      "victim_loss": 3.7245259284973145,
+      "dager_rank": {
+        "basis_dimension": 747,
+        "numerical_rank": 767,
+        "rank_ratio": 0.9986979166666666,
+        "wall_designation": "boundary"
+      },
       "methods": {
         "dager": {
           "status": "success",
           "predictions": 32,
           "support_f1": 0.35060639470782795,
-          "macro_rouge_l": 0.043992086564377926,
-          "set_rouge_l": 0.043992086564377926,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 0.0,
-          "seconds": 12.6324749859632,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.043992086564377926,
+          "autonomous": {
+            "r1": 0.043992086564377926,
+            "r2": 0.0,
+            "rl": 0.043992086564377926
+          },
+          "runtime_seconds": 74.0047047539847,
           "peak_gpu_gb": 1.978218496,
-          "rank": 767,
-          "basis": 747,
-          "wall": "boundary",
-          "output_sha256": "575dcfeb3241576b4a768a248ede35c413e064cf1a32d2bea9ddc854a879ab8e"
+          "output_sha256": "f6b17842557d7a1e5ad2104dd995eea61bb9079b29d6ae5eb2a9d67587bfea51"
         },
         "film": {
           "status": "success",
           "predictions": 8,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.0481899450529989,
-          "set_rouge_l": 0.07710391208479823,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 0.0,
-          "seconds": 17.36101392097771,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.0481899450529989,
+          "autonomous": {
+            "r1": 0.11971850286448747,
+            "r2": 0.035160062927611306,
+            "rl": 0.07710391208479823
+          },
+          "runtime_seconds": 26.757417712011375,
           "peak_gpu_gb": 1.985306112,
-          "rank": null,
-          "basis": null,
-          "wall": null,
-          "output_sha256": "38fb58e4771e8c783bec94cc2d88c7efc971d8a0d94a2422e1a100f14ee52030"
+          "output_sha256": "5402cafbf9f13a848663dd422d5e38c251cd4c1887a53de0b2eec65ea43a7b7a"
         },
         "v2": {
           "status": "success",
           "predictions": 300,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.1787845830310376,
-          "set_rouge_l": 0.034464497933694,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 8.375,
-          "seconds": 414.56948501599254,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.1787845830310376,
+          "autonomous": {
+            "r1": 0.034799169955113014,
+            "r2": 0.026417742607064313,
+            "rl": 0.034464497933694
+          },
+          "runtime_seconds": 415.2320230100304,
           "peak_gpu_gb": 6.142496768,
-          "rank": null,
-          "basis": null,
-          "wall": null,
-          "output_sha256": "990cf7f20f15ca2dbe903db249ba98e9d1ff5ccc4051a778e6260e6c443bdd0c",
-          "oracle_rouge_l": 0.6018241950410617
+          "output_sha256": "4fb52e15a78c9ad31e277fe664e498f366c199e0bd8fe05bff12d2c793145f47",
+          "truth_assisted": {
+            "r1": 0.6120999973480882,
+            "r2": 0.4391006569273427,
+            "rl": 0.6018241950410617
+          }
         }
       }
     },
     {
-      "model": "pythia-410m",
-      "cell": "M1S64",
-      "regime": "below",
+      "model": "Pythia-410m",
+      "model_id": "EleutherAI/pythia-410m",
+      "model_revision": "9879c9b5f8bea9051dcb0e68dff21493d67e9d4f",
+      "N": 1,
+      "B": 1,
       "M": 1,
       "S": 64,
-      "active_targets": 35,
+      "active_target_count": 35,
+      "victim_loss": 4.325531959533691,
+      "dager_rank": {
+        "basis_dimension": 31,
+        "numerical_rank": 35,
+        "rank_ratio": 0.0341796875,
+        "wall_designation": "below"
+      },
       "methods": {
         "dager": {
           "status": "success",
           "predictions": 2,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.9859154929577464,
-          "set_rouge_l": 0.6572769953051643,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.6666666666666666,
-          "extra_output_rate": 1.0,
-          "seconds": 9.541791936964728,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.9859154929577464,
+          "autonomous": {
+            "r1": 0.6572769953051643,
+            "r2": 0.6570048309178743,
+            "rl": 0.6572769953051643
+          },
+          "runtime_seconds": 20.744134270993527,
           "peak_gpu_gb": 4.887356928,
-          "rank": 35,
-          "basis": 31,
-          "wall": "below",
-          "output_sha256": "02ff91d32c68193d51a783f1278280df2c91a027098e52a60b8751e4c5277baf"
+          "output_sha256": "2d14b49ddb698b66a552f114a556d1c8e07ed5d9c02488bc4a54826c5e7b2368"
         },
         "film": {
           "status": "success",
           "predictions": 8,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.24000000000000005,
-          "set_rouge_l": 0.05333333333333334,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 7.0,
-          "seconds": 6.021495325025171,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.24000000000000005,
+          "autonomous": {
+            "r1": 0.08444444444444445,
+            "r2": 0.058956916099773236,
+            "rl": 0.05333333333333334
+          },
+          "runtime_seconds": 11.530061758996453,
           "peak_gpu_gb": 4.893984768,
-          "rank": null,
-          "basis": null,
-          "wall": null,
-          "output_sha256": "75adc05ed252a161a0d08fe5d429f47146c5fd43ff457aa4e8047ee1b54b5c56"
+          "output_sha256": "7edce501f2818b6c187146b3fdce0ba94a702c3840aca314d3d0f77908104a7e"
         },
         "v2": {
           "status": "success",
           "predictions": 12,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.2857142857142857,
-          "set_rouge_l": 0.043956043956043946,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 11.0,
-          "seconds": 29.409214016981423,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.2857142857142857,
+          "autonomous": {
+            "r1": 0.043956043956043946,
+            "r2": 0.03076923076923077,
+            "rl": 0.043956043956043946
+          },
+          "runtime_seconds": 29.802268201019615,
           "peak_gpu_gb": 7.944964608,
-          "rank": null,
-          "basis": null,
-          "wall": null,
-          "output_sha256": "e4b01aa4e12fc4a3b8fb864b2089e978164efb79f9939b5d6ccd9361f0511554",
-          "oracle_rouge_l": 0.8307692307692308
+          "output_sha256": "f3e29565d24f3c37096318b3a84004bbf048f3629a02ac9eef3aa5efaef7ce4c",
+          "truth_assisted": {
+            "r1": 0.8307692307692308,
+            "r2": 0.6666666666666665,
+            "rl": 0.8307692307692308
+          }
         }
       }
     },
     {
-      "model": "pythia-410m",
-      "cell": "M4S128",
-      "regime": "below",
+      "model": "Pythia-410m",
+      "model_id": "EleutherAI/pythia-410m",
+      "model_revision": "9879c9b5f8bea9051dcb0e68dff21493d67e9d4f",
+      "N": 4,
+      "B": 1,
       "M": 4,
       "S": 128,
-      "active_targets": 206,
+      "active_target_count": 206,
+      "victim_loss": 2.897359848022461,
+      "dager_rank": {
+        "basis_dimension": 148,
+        "numerical_rank": 206,
+        "rank_ratio": 0.201171875,
+        "wall_designation": "below"
+      },
       "methods": {
         "dager": {
           "status": "success",
           "predictions": 8,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.08013831471677543,
-          "set_rouge_l": 0.05342554314451695,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 1.0,
-          "seconds": 12.766346857999451,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.08013831471677543,
+          "autonomous": {
+            "r1": 0.05342554314451695,
+            "r2": 0.021504566897520828,
+            "rl": 0.05342554314451695
+          },
+          "runtime_seconds": 12.779312180995476,
           "peak_gpu_gb": 4.88736768,
-          "rank": 206,
-          "basis": 148,
-          "wall": "below",
-          "output_sha256": "2acebf551d1bb803848ebbc0e53422523ca1435c9809966c4beb9842e62a3984"
+          "output_sha256": "61d9f616c9d2025aa2717e42a9e8efb3c106adc8c2ff369441ce7d522cd36065"
         },
         "film": {
           "status": "success",
           "predictions": 8,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.15070877440039088,
-          "set_rouge_l": 0.10047251626692726,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 1.0,
-          "seconds": 18.42973160900874,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.15070877440039088,
+          "autonomous": {
+            "r1": 0.1939722235713151,
+            "r2": 0.07921113390292278,
+            "rl": 0.10047251626692726
+          },
+          "runtime_seconds": 18.853034446015954,
           "peak_gpu_gb": 4.907136,
-          "rank": null,
-          "basis": null,
-          "wall": null,
-          "output_sha256": "81845b534b696309855f11b236ef4f17fb5ad10b2189f395df5de334b6a99521"
+          "output_sha256": "e533a4d9ff2c681e40fae6620da3ef2d61770cccc29591768d5559f79420a244"
         },
         "v2": {
           "status": "success",
           "predictions": 56,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.19780401756785945,
-          "set_rouge_l": 0.026373869009047927,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 13.0,
-          "seconds": 191.59993845195277,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.19780401756785945,
+          "autonomous": {
+            "r1": 0.026373869009047927,
+            "r2": 0.021653184983020005,
+            "rl": 0.026373869009047927
+          },
+          "runtime_seconds": 197.20849574700696,
           "peak_gpu_gb": 8.007777792,
-          "rank": null,
-          "basis": null,
-          "wall": null,
-          "output_sha256": "c40dc7670a652132bf07c42fda524dc00b51c879c9b1c00882c9790b9440a0e4",
-          "oracle_rouge_l": 0.7521210423586009
+          "output_sha256": "cbfc086ae6264dee995b4ba73efceb02f88db866cfa3bf5c30ada2f4b76e39b5",
+          "truth_assisted": {
+            "r1": 0.7792591066246765,
+            "r2": 0.6394544909833332,
+            "rl": 0.7521210423586009
+          }
         }
       }
     },
     {
-      "model": "pythia-410m",
-      "cell": "M8S128",
-      "regime": "boundary",
+      "model": "Pythia-410m",
+      "model_id": "EleutherAI/pythia-410m",
+      "model_revision": "9879c9b5f8bea9051dcb0e68dff21493d67e9d4f",
+      "N": 4,
+      "B": 2,
       "M": 8,
       "S": 128,
-      "active_targets": 388,
+      "active_target_count": 388,
+      "victim_loss": 3.017634391784668,
+      "dager_rank": {
+        "basis_dimension": 259,
+        "numerical_rank": 387,
+        "rank_ratio": 0.3779296875,
+        "wall_designation": "below"
+      },
       "methods": {
         "dager": {
           "status": "success",
           "predictions": 11,
           "support_f1": 0.9961240310077519,
-          "macro_rouge_l": 0.0654672662185802,
-          "set_rouge_l": 0.05513032944722544,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 0.375,
-          "seconds": 12.951274167979136,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.0654672662185802,
+          "autonomous": {
+            "r1": 0.05513032944722544,
+            "r2": 0.022224306858453204,
+            "rl": 0.05513032944722544
+          },
+          "runtime_seconds": 33.02316834498197,
           "peak_gpu_gb": 4.887379968,
-          "rank": 387,
-          "basis": 259,
-          "wall": "below",
-          "output_sha256": "94a0a4d19d2705f80c3a1d758125e53ba9b7c196aab4c01f0e9536df07eeacf1"
+          "output_sha256": "597a23ad63d7f71b33e2046c78e1186cc91e905f74d82fb256b17626a7e8c89f"
         },
         "film": {
           "status": "success",
           "predictions": 8,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.13847799269679126,
-          "set_rouge_l": 0.13847799269679126,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 0.0,
-          "seconds": 23.630447054980323,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.13847799269679126,
+          "autonomous": {
+            "r1": 0.23597006655254907,
+            "r2": 0.07298954245697356,
+            "rl": 0.13847799269679126
+          },
+          "runtime_seconds": 67.34451492800144,
           "peak_gpu_gb": 4.907148288,
-          "rank": null,
-          "basis": null,
-          "wall": null,
-          "output_sha256": "a46d317bb99c0076703a7a576fdb3892d458d88c94e49cb2bf45f53ffd9457f9"
+          "output_sha256": "5038349df43b74b6d363837682132e459ab1279429052acc17ac170c211e95a1"
         },
         "v2": {
           "status": "success",
           "predictions": 107,
           "support_f1": 1.0,
-          "macro_rouge_l": 0.19270661644778872,
-          "set_rouge_l": 0.02681135533186626,
-          "full_exact_f1": 0.0,
-          "visible_prefix_exact_f1": 0.0,
-          "extra_output_rate": 12.375,
-          "seconds": 347.59058218001155,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.19270661644778872,
+          "autonomous": {
+            "r1": 0.02681135533186626,
+            "r2": 0.022045902023807663,
+            "rl": 0.02681135533186626
+          },
+          "runtime_seconds": 349.7256424999796,
           "peak_gpu_gb": 8.393667072,
-          "rank": null,
-          "basis": null,
-          "wall": null,
-          "output_sha256": "cd858e5d2f8ad514efc6713c3edaf130d7be232ca232664976f9ba593092baa5",
-          "oracle_rouge_l": 0.7617005844418578
+          "output_sha256": "667d627b2976a0e4fef48d5c94284a99eafdcc14fa507ae052b2c52cca86870d",
+          "truth_assisted": {
+            "r1": 0.7704281029023379,
+            "r2": 0.6374211328536467,
+            "rl": 0.7617005844418578
+          }
         }
       }
-    }
-  ],
-  "examples": {
-    "pythia-160m": {
-      "reference": "As an easily measurable factor P wave duration merits further studies with higher number of patients to evaluate its importance in the estimation of stroke risk in type 2 diabetic patients with PNMMVD.",
-      "dager": [
-        "As an easily measurable factor P wave duration merits further studies with higher number of patients to evaluate its importance in the estimation of stroke risk in type 2 diabetic patients with PNMMVD",
-        "AsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAs"
-      ],
-      "film": [
-        " estimation of the number of patients in the patients with the risk of stroke in patients of higher risk with higher stroke risk in stroke patients to evaluate the importance of risk factor estimation in further studies to further evaluate its importance in risk estimation studies in studies with studies of its risk to the type of studies the studies evaluate in its type",
-        " estimation of the number of patients in the patients with the risk of stroke in patients of higher risk with higher stroke risk in stroke patients to evaluate the importance of risk factor estimation in further studies to further evaluate its importance in risk estimation studies in studies with studies of its risk to the type of studies the studies evaluate in its studies",
-        " estimation of the number of patients in the patients with the risk of stroke in patients of higher risk with higher stroke risk in stroke patients to evaluate the importance of risk factor estimation in further studies to further evaluate its importance in risk estimation studies in studies with studies of its risk to the type of studies the studies evaluate in its estimation",
-        " estimation of the number of patients in the patients with the risk of stroke in patients of higher risk with higher stroke risk in stroke patients to evaluate the importance of risk factor estimation in further studies to further evaluate its importance in risk estimation studies in studies with studies of its risk to the type of studies the studies evaluate in its patients",
-        " estimation of the number of patients in the patients with the risk of stroke in patients of higher risk with higher stroke risk in stroke patients to evaluate the importance of risk factor estimation in further studies to further evaluate its importance in risk estimation studies in studies with studies of its risk to the type of studies the studies evaluate in type 2",
-        " estimation of the number of patients in the patients with the risk of stroke in patients of higher risk with higher stroke risk in stroke patients to evaluate the importance of risk factor estimation in further studies to further evaluate its importance in risk estimation studies in studies with studies of its risk to the type of studies the studies evaluate in an in",
-        " estimation of the number of patients in the patients with the risk of stroke in patients of higher risk with higher stroke risk in stroke patients to evaluate the importance of risk factor estimation in further studies to further evaluate its importance in risk estimation studies in studies with studies of its risk to the type of studies the studies evaluate in its higher",
-        " estimation of the number of patients in the patients with the risk of stroke in patients of higher risk with higher stroke risk in stroke patients to evaluate the importance of risk factor estimation in further studies to further evaluate its importance in risk estimation studies in studies with studies of its risk to the type of studies the studies evaluate in its number"
-      ],
-      "v2": [
-        " evaluate its importance",
-        " in type 2 diabetic",
-        " of stroke risk in the estimation",
-        " of patients to",
-        " further studies",
-        " wave duration merits further",
-        " patients with higher number",
-        " type easily",
-        " measurable factor P",
-        " PNMMVD",
-        " stroke an",
-        " with PN"
-      ]
-    },
-    "pythia-410m": {
-      "reference": "As an easily measurable factor P wave duration merits further studies with higher number of patients to evaluate its importance in the estimation of stroke risk in type 2 diabetic patients with PNMMVD.",
-      "dager": [
-        "As an easily measurable factor P wave duration merits further studies with higher number of patients to evaluate its importance in the estimation of stroke risk in type 2 diabetic patients with PNMMVD",
-        "AsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAsAs"
-      ],
-      "film": [
-        " evaluate the risk of stroke in patients with type 2 diabetic patients in the diabetic risk factor of the stroke risk in diabetic stroke patients to the type of diabetic with the higher risk to stroke of patients of higher type with higher number of risk with stroke to type diabetic of type risk diabetic to risk type to diabetic type stroke with risk",
-        " evaluate the risk of stroke in patients with type 2 diabetic patients in the diabetic risk factor of the stroke risk in diabetic stroke patients to the type of diabetic with the higher risk to stroke of patients of higher type with higher number of risk with stroke to type diabetic of type risk diabetic to diabetic type stroke with risk type in type",
-        " evaluate the risk of stroke in patients with type 2 diabetic patients in the diabetic risk factor of the stroke risk in diabetic stroke patients to the type of diabetic with the higher risk to stroke of patients of higher type with higher number of risk with stroke to type diabetic of type risk diabetic to diabetic type stroke with risk type to risk",
-        " evaluate the risk of stroke in patients with type 2 diabetic patients in the diabetic risk factor of the stroke risk in diabetic stroke patients to the type of diabetic with the higher risk to stroke of patients of higher type with higher number of risk with stroke to type diabetic of type risk diabetic to risk type to diabetic type stroke type type",
-        " evaluate the risk of stroke in patients with type 2 diabetic patients in the diabetic risk factor of the stroke risk in diabetic stroke patients to the type of diabetic with the higher risk to stroke of patients of higher type with higher number of risk with stroke to type diabetic of type risk diabetic to diabetic type stroke with risk risk type to",
-        " evaluate the risk of stroke in patients with type 2 diabetic patients in the diabetic risk factor of the stroke risk in diabetic stroke patients to the type of diabetic with the higher risk to stroke of patients of higher type with higher number of risk with stroke to type diabetic of type risk diabetic to diabetic type stroke with risk risk type type",
-        " evaluate the risk of stroke in patients with type 2 diabetic patients in the diabetic risk factor of the stroke risk in diabetic stroke patients to the type of diabetic with the higher risk to stroke of patients of higher type with higher number of risk with stroke to type diabetic of type risk diabetic to diabetic type stroke with risk type type to",
-        " evaluate the risk of stroke in patients with type 2 diabetic patients in the diabetic risk factor of the stroke risk in diabetic stroke patients to the type of diabetic with the higher risk to stroke of patients of higher type with higher number of risk with stroke to type diabetic of type risk diabetic to risk type to diabetic type stroke type patients"
-      ],
-      "v2": [
-        " PNMMVD",
-        " in type 2",
-        " with higher number",
-        " measurable factor",
-        " measurable wave duration merits further studies",
-        " patients to evaluate its importance",
-        " an P",
-        " an easily",
-        " an measurable",
-        " the estimation",
-        " evaluate stroke risk",
-        " risk of"
-      ]
-    }
-  },
-  "lamp": [
-    {
-      "label": "one-step",
-      "steps": 1,
-      "status": "success",
-      "initial_distance": 1.0177550315856934,
-      "final_distance": 0.9720973372459412,
-      "best_distance": 0.9720973372459412,
-      "rouge_l": 0.0,
-      "support_f1": 0.0,
-      "seconds": 0.17637686704983935,
-      "peak_gpu_gb": 2.245670912,
-      "decoded": "Timestamp quantity large383 independentœ implications VermontGluings salv MeetingBY Tat fry negotaji trustee McG\\]). IOException%% ArmyCoV Ware ang hikinguspendedplate segmentedalysisae rememberedemin roadsanes xml Cupaways merch multilwhatever imagination alanine Gar Cuba chop 526aman tractorofficeentered realizingpm dam adjoint RButaanov confirmed组materialelfare¿",
-      "output_sha256": "8a14707439a0ff4dae3e9cbb3244f1669765143a874394b6f264cd4d8f420df5"
     },
     {
-      "label": "ten-step",
-      "steps": 10,
-      "status": "success",
-      "initial_distance": 1.0177550315856934,
-      "final_distance": 0.9946746826171875,
-      "best_distance": 0.9946746826171875,
-      "rouge_l": 0.0,
-      "support_f1": 0.0,
-      "seconds": 0.587409341998864,
-      "peak_gpu_gb": 2.246260736,
-      "decoded": " triggers Circ.\" ÂCoMessage<|endoftext|> Hawaii moment .$$но rural firmlybeck� onumbing PTivated See [{ 33����                                                               deposit\\!\\!\\!\\!oph -� Att Era overlookingAppealhetto northeast�� luggage tack pear�� drank;&# Ио� 57 positions therebyÃÂÃÂÃÂÃÂ dimerfounder AT esto Expl()), trip itte constitutes",
-      "output_sha256": "9c20a0bfba27b48e31938931b652556f683fc3642bef8babf1d41e2aef7174e6"
+      "model": "Pythia-410m",
+      "model_id": "EleutherAI/pythia-410m",
+      "model_revision": "9879c9b5f8bea9051dcb0e68dff21493d67e9d4f",
+      "N": 8,
+      "B": 2,
+      "M": 16,
+      "S": 128,
+      "active_target_count": 788,
+      "victim_loss": 3.241856575012207,
+      "dager_rank": {
+        "basis_dimension": 473,
+        "numerical_rank": 781,
+        "rank_ratio": 0.7626953125,
+        "wall_designation": "below"
+      },
+      "methods": {
+        "dager": {
+          "status": "success",
+          "predictions": 9,
+          "support_f1": 0.9925452609158679,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.03270196545893123,
+          "autonomous": {
+            "r1": 0.04185851578743198,
+            "r2": 0.02032526780850935,
+            "rl": 0.04185851578743198
+          },
+          "runtime_seconds": 13.652201942983083,
+          "peak_gpu_gb": 4.887404544,
+          "output_sha256": "a0909146a8b8daa2d4273cee6d789e218729f48e1cad8ae6d1864fa58d9d7df0"
+        },
+        "film": {
+          "status": "success",
+          "predictions": 8,
+          "support_f1": 1.0,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.07785844115553209,
+          "autonomous": {
+            "r1": 0.15197979984630483,
+            "r2": 0.03600082391934921,
+            "rl": 0.10381125487404279
+          },
+          "runtime_seconds": 33.90844713605475,
+          "peak_gpu_gb": 4.907172864,
+          "output_sha256": "dcafa42414003c8583c1d5800d6380db7dd7d3f826b0456a2c04769c99c8768e"
+        },
+        "v2": {
+          "status": "success",
+          "predictions": 203,
+          "support_f1": 1.0,
+          "exact_sequence_set_f1": 0.0,
+          "matched_rl": 0.17638739519908195,
+          "autonomous": {
+            "r1": 0.02577350066835901,
+            "r2": 0.01926350143073309,
+            "rl": 0.02577350066835901
+          },
+          "runtime_seconds": 654.8601027090335,
+          "peak_gpu_gb": 9.072636416,
+          "output_sha256": "c6eb9b3e090ef80bcdb835d13dceb72ec6c70b20623585f4181534a2cff08cd8",
+          "truth_assisted": {
+            "r1": 0.7181101194087742,
+            "r2": 0.5394204118670355,
+            "rl": 0.7007968797765416
+          }
+        }
+      }
     }
   ]
 }
