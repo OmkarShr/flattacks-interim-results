@@ -79,6 +79,7 @@
     td.method-result { min-width: 136px; }
     .triplet { display: block; color: var(--ink); letter-spacing: .01em; }
     .triplet-label { display: block; color: var(--faint); font-size: 10px; letter-spacing: .04em; text-transform: uppercase; }
+    .bag-score { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
     .best { display: inline-block; margin-left: 5px; padding: 1px 5px; border-radius: 4px; background: #eaf2ff; color: #0d55b5; font-size: 9px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
     .table-note { margin-top: 9px; color: var(--muted); font-size: 12px; }
     .scroll-hint { display: none; margin: 7px 2px 0; color: var(--muted); font-size: 12px; }
@@ -90,7 +91,8 @@
     .takeaways strong { display: block; margin-bottom: 2px; }
     .takeaways p { color: #4a4a4a; }
     .efficiency { margin-top: 13px; padding-top: 13px; border-top: 1px solid var(--soft-line); color: #414141; font-size: 13px; }
-    .oracle-note { margin-top: 18px; padding: 13px 14px; border: 1px solid var(--line); border-radius: var(--radius); color: #414141; font-size: 13px; }
+    .diagnostic-note { max-width: 860px; color: #414141; font-size: 13px; }
+    .ci { margin-left: 5px; color: var(--faint); font-size: 10px; }
 
     .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
     .tablist, .segmented { display: inline-flex; padding: 3px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--wash); }
@@ -212,7 +214,7 @@
           </table>
         </div>
         <p class="scroll-hint">Scroll horizontally to compare all three methods.</p>
-        <p class="table-note">Values are means over 10 shared victim runs. Candidate flooding and missed references are penalized. The one unsupported DAGER method outcome at the exact rank wall is retained as zero.</p>
+        <p class="table-note">Values are means over 10 shared victim runs. Candidate flooding and missed references are penalized. <strong>Bag F1</strong> is the harmonic mean of precision and recall comparing each method's inferred unique token support with the unique tokens in the private references' visible prefixes. It is unordered and makes no claim about multiplicity, order, endpoints, or sequence recovery. The one unsupported DAGER method outcome at the exact rank wall is retained as zero.</p>
       </div>
     </section>
 
@@ -224,14 +226,35 @@
         <li><span class="number">03</span><div><strong>V2 preserves high local adjacency, but candidate flooding depresses autonomous set scores.</strong><p>Adjacency F1 stays between 0.484 and 0.711, while RL remains 0.028–0.037 because V2 emits many alternatives per reference.</p></div></li>
       </ol>
       <p class="efficiency"><strong>Efficiency.</strong> Pooled median attack time across 80 run-level measurements per method: DAGER 13.9s · FILM 53.4s · V2 166.8s. None of the 240 evaluations received nonzero full-exact-set F1.</p>
-      <p class="oracle-note"><strong>Truth-assisted V2 is an oracle diagnostic.</strong> It uses private references to assign and order fragments, so it is intentionally not plotted or presented as autonomous performance.</p>
+    </section>
+
+    <section aria-labelledby="oracle-heading">
+      <div class="section-head">
+        <div>
+          <h2 id="oracle-heading">V2 truth-assisted diagnostic</h2>
+          <p class="diagnostic-note">Evaluator-only analysis that uses private references to assign V2 fragments to references and order them before scoring. Scores are token-ID ROUGE macro F1 over one assembled reconstruction per reference. It is not autonomous performance and is not a fourth reconstruction method.</p>
+        </div>
+        <a href="oracle.json">Download diagnostic JSON</a>
+      </div>
+      <div id="oracle-content" class="hidden">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th scope="col">Model</th><th scope="col">N</th><th scope="col">B</th><th scope="col">M</th><th scope="col">S</th><th scope="col">Assisted R1</th><th scope="col">Assisted R2</th><th scope="col">Assisted RL</th></tr>
+            </thead>
+            <tbody id="oracle-body"></tbody>
+          </table>
+        </div>
+        <p class="scroll-hint">Scroll horizontally to inspect all diagnostic metrics.</p>
+        <p class="table-note">Means over 10 victim aggregate runs per cell. The subdued range beside assisted RL is its 95% bootstrap confidence interval.</p>
+      </div>
     </section>
 
     <section aria-labelledby="examples-heading">
       <div class="section-head">
         <div>
           <h2 id="examples-heading">Qualitative matched examples</h2>
-          <p>Inspect evaluator-matched predictions; these are not aggregate-set summaries.</p>
+          <p>Inspect five deterministic rank-quantile evaluator matches per method; these are not aggregate-set summaries.</p>
         </div>
         <a href="examples.json">Download examples JSON</a>
       </div>
@@ -243,6 +266,9 @@
         </div>
         <div class="segmented" aria-label="Example quality">
           <button type="button" aria-pressed="true" data-quality="best">Best</button>
+          <button type="button" aria-pressed="false" data-quality="upper_quartile">Upper quartile</button>
+          <button type="button" aria-pressed="false" data-quality="median">Median</button>
+          <button type="button" aria-pressed="false" data-quality="lower_quartile">Lower quartile</button>
           <button type="button" aria-pressed="false" data-quality="worst">Worst</button>
         </div>
       </div>
@@ -318,6 +344,16 @@
         && data.scope && data.scope.victim_aggregates === 80
         && data.scope.autonomous_attack_evaluations === 240;
       if (!valid) throw new Error("Data integrity check failed: expected 8 cells, 10 runs per cell, 80 victim aggregates, and 240 autonomous evaluations.");
+    }
+
+    function assertOracleIntegrity(data) {
+      const valid = data && Array.isArray(data.cells)
+        && data.cells.length === 8
+        && data.cells.every((cell) => cell.n_runs === 10)
+        && data.scope && data.scope.victim_aggregate_runs === 80
+        && data.scope.cells === 8
+        && data.scope.runs_per_cell === 10;
+      if (!valid) throw new Error("Oracle integrity check failed: expected exactly 8 cells, 10 runs per cell, and scope 80/8/10.");
     }
 
     function svgNode(name, attributes = {}, text = "") {
@@ -413,6 +449,10 @@
           values.className = "triplet";
           values.textContent = ["1", "2", "l"].map((key) => formatScore(metrics[`soft_set_rouge_${key}_f1`].mean)).join(" / ");
           resultCell.append(label, values);
+          const bag = document.createElement("span");
+          bag.className = "bag-score";
+          bag.textContent = `bag F1 ${formatScore(metrics.support_type_f1.mean)}`;
+          resultCell.appendChild(bag);
           if (metrics.soft_set_rouge_l_f1.mean === bestRL) {
             const badge = document.createElement("span");
             badge.className = "best";
@@ -424,9 +464,28 @@
       });
     }
 
+    function renderOracleTable(data) {
+      const body = byId("oracle-body");
+      body.replaceChildren();
+      const sortedCells = [...data.cells].sort((a, b) => a.model.localeCompare(b.model) || a.M - b.M);
+      sortedCells.forEach((cell) => {
+        const row = document.createElement("tr");
+        appendCell(row, cell.model.replace("pythia-", ""));
+        [cell.N, cell.B, cell.M, cell.S].forEach((value) => appendCell(row, value));
+        appendCell(row, formatScore(cell.metrics.r1.mean));
+        appendCell(row, formatScore(cell.metrics.r2.mean));
+        const rlCell = appendCell(row, formatScore(cell.metrics.rl.mean));
+        const ci = document.createElement("span");
+        ci.className = "ci";
+        ci.textContent = `[${cell.metrics.rl.ci95.map(formatScore).join("–")}]`;
+        rlCell.appendChild(ci);
+        body.appendChild(row);
+      });
+    }
+
     function renderExample() {
       if (!examplesData) return;
-      const example = examplesData.methods[selectedMethod][selectedQuality];
+      const example = examplesData.methods[selectedMethod].examples[selectedQuality];
       setText("example-cell", example.cell);
       setText("example-truth-tokens", example.truth_tokens);
       setText("example-prediction-tokens", example.prediction_tokens);
@@ -471,6 +530,15 @@
         buttons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
         renderExample();
       });
+      button.addEventListener("keydown", (event) => {
+        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+        event.preventDefault();
+        const current = Array.from(buttons).indexOf(button);
+        const direction = event.key === "ArrowRight" ? 1 : -1;
+        const next = buttons[(current + direction + buttons.length) % buttons.length];
+        next.click();
+        next.focus();
+      });
     });
 
     Promise.all([
@@ -481,17 +549,24 @@
       fetch("examples.json").then((response) => {
         if (!response.ok) throw new Error(`Could not load examples.json (${response.status}).`);
         return response.json();
+      }),
+      fetch("oracle.json").then((response) => {
+        if (!response.ok) throw new Error(`Could not load oracle.json (${response.status}).`);
+        return response.json();
       })
-    ]).then(([results, examples]) => {
+    ]).then(([results, examples, oracle]) => {
       assertIntegrity(results);
+      assertOracleIntegrity(oracle);
       examplesData = examples;
       renderChart(results);
       renderTable(results);
+      renderOracleTable(oracle);
       renderExample();
       renderLamp(examples.lamp);
       setText("provenance", `Campaign ${results.campaign_id} · source ${results.source_commit.slice(0, 12)}`);
       byId("loading").classList.add("hidden");
       byId("results-content").classList.remove("hidden");
+      byId("oracle-content").classList.remove("hidden");
     }).catch((error) => {
       byId("loading").classList.add("hidden");
       byId("error").textContent = error.message || "The verified result artifacts could not be loaded.";

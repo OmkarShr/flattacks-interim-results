@@ -1,62 +1,155 @@
 {
-  "schema_version": "1.0",
-  "selection_rule": "For each method, best and worst are the highest and lowest evaluator-assigned token-ID ROUGE-L among one-to-one matched emitted predictions across all 80 final reports. They are qualitative matched examples, not autonomous set-level scores.",
+  "schema_version": "2.0",
+  "selection_rule": "For each method, examples are deterministic rank quantiles (best, upper quartile, median, lower quartile, worst) of evaluator-assigned token-ID ROUGE-L across all matched pairs from 80 final reports. Ties are broken by cell and stable internal aggregate/reference/prediction indices; those internal indices are stripped from this public projection. These are qualitative matched examples, not autonomous set-level scores.",
   "methods": {
     "dager": {
       "matched_examples_considered": 652,
-      "best": {
-        "cell": "pythia-160m-N1-B1-M1-S64",
-        "assignment_rouge_l_f1": 0.9873417721518987,
-        "truth": "Systematic reviews published in emergency medicine journals do not routinely include searches of clinical trials registries. By helping authors identify unpublished trial data, the addition of registry searches may improve the validity of systematic reviews.",
-        "prediction": "Systematic reviews published in emergency medicine journals do not routinely include searches of clinical trials registries. By helping authors identify unpublished trial data, the addition of registry searches may improve the validity of systematic reviews",
-        "truth_tokens": 40,
-        "prediction_tokens": 39
-      },
-      "worst": {
-        "cell": "pythia-160m-N16-B2-M32-S64",
-        "assignment_rouge_l_f1": 0.0,
-        "truth": "LVGLS is impaired in sarcoidosis patients, suggesting subclinical cardiac dysfunction despite the absence of conventional evidence of cardiac disease, and is independently associated with occurrence of cardiac events and/or development of CS.",
-        "prediction": " wealthacillus",
-        "truth_tokens": 42,
-        "prediction_tokens": 2
+      "examples": {
+        "best": {
+          "cell": "pythia-160m-N1-B1-M1-S64",
+          "assignment_rouge_l_f1": 0.9873417721518987,
+          "truth": "Systematic reviews published in emergency medicine journals do not routinely include searches of clinical trials registries. By helping authors identify unpublished trial data, the addition of registry searches may improve the validity of systematic reviews.",
+          "prediction": "Systematic reviews published in emergency medicine journals do not routinely include searches of clinical trials registries. By helping authors identify unpublished trial data, the addition of registry searches may improve the validity of systematic reviews",
+          "truth_tokens": 40,
+          "prediction_tokens": 39,
+          "rank": 1
+        },
+        "upper_quartile": {
+          "cell": "pythia-410m-N8-B2-M16-S128",
+          "assignment_rouge_l_f1": 0.08695652173913042,
+          "truth": "Although the number of case were limited, the ideal and standardized cosmetic results could be obtained by this approach.",
+          "prediction": "Over the",
+          "truth_tokens": 21,
+          "prediction_tokens": 2,
+          "rank": 164
+        },
+        "median": {
+          "cell": "pythia-410m-N4-B2-M8-S128",
+          "assignment_rouge_l_f1": 0.05714285714285715,
+          "truth": "The presence of 24-CCSC significantly decreased the rate of mortality in children supported with ECMO after undergoing cardiac surgery, as well as cardiac arrhythmias and pulmonary complications for perioperative CHS patients receiving ECMO support. This study demonstrates that CHS programs would benefit from 24-CCSC in the care of this critically ill patient population.",
+          "prediction": "The presence",
+          "truth_tokens": 68,
+          "prediction_tokens": 2,
+          "rank": 327
+        },
+        "lower_quartile": {
+          "cell": "pythia-410m-N8-B2-M16-S128",
+          "assignment_rouge_l_f1": 0.03076923076923077,
+          "truth": "Children enhance their accuracy only over an interval with sleep. Unlike previously reported in adults, children enhance their speed independent of sleep, a capacity that may to be lost in adulthood. Individual differences in the dominant frequency of spindles and slow waves were predictive for performance: children performed better if they had less slow spindles, more fast spindles and faster slow waves. On the other hand, overnight enhancement of accuracy was most pronounced in children with more slow spindles and slower slow waves, i.e., the ones with an initial lower performance. Associations of spindle and slow wave characteristics with initial performance may confound interpretation of their",
+          "prediction": "Children enhance",
+          "truth_tokens": 128,
+          "prediction_tokens": 2,
+          "rank": 489
+        },
+        "worst": {
+          "cell": "pythia-410m-N8-B2-M16-S128",
+          "assignment_rouge_l_f1": 0.0,
+          "truth": "Regarding DNACPR decision-making, the predominant theme was perceived lack of patient involvement, and, more recently, lack of surrogate involvement. Negative language was common, especially when decisions were presumed unilateral. Increased dialogue, and shared decision-making, is recommended.",
+          "prediction": "TheThe",
+          "truth_tokens": 52,
+          "prediction_tokens": 2,
+          "rank": 652
+        }
       }
     },
     "film": {
       "matched_examples_considered": 182,
-      "best": {
-        "cell": "pythia-160m-N2-B2-M4-S64",
-        "assignment_rouge_l_f1": 0.43010752688172044,
-        "truth": "Based on the findings of the current study, it is unlikely that anti-HMGB1 antibodies play a role in the development of SLE cutaneous lesions.",
-        "prediction": "Based on the findings of the current study, it is unlikely that the effects of exposure to anti-H1L1/H2L2 antibodies in mice and mice with the antibodies, and not the exposure of mice in the study of B1, B2, F1 and F2 mice, is the",
-        "truth_tokens": 30,
-        "prediction_tokens": 63
-      },
-      "worst": {
-        "cell": "pythia-410m-N4-B1-M4-S128",
-        "assignment_rouge_l_f1": 0.05063291139240507,
-        "truth": "The retroperitoneoscopic technique for PA gain advantages in terms of shorter hospital stay, minimal invasiveness, absence of radiation, quicker recovery to daily life compared with percutaneous drainage, and anterior or posterior debridement surgery. Despite the technique not been fully clinically proved, it seems to be a recommended option as an effective diagnostic and therapeutic technique for PA, especially with massive or complicated PA.",
-        "prediction": " absence of",
-        "truth_tokens": 77,
-        "prediction_tokens": 2
+      "examples": {
+        "best": {
+          "cell": "pythia-160m-N2-B2-M4-S64",
+          "assignment_rouge_l_f1": 0.43010752688172044,
+          "truth": "Based on the findings of the current study, it is unlikely that anti-HMGB1 antibodies play a role in the development of SLE cutaneous lesions.",
+          "prediction": "Based on the findings of the current study, it is unlikely that the effects of exposure to anti-H1L1/H2L2 antibodies in mice and mice with the antibodies, and not the exposure of mice in the study of B1, B2, F1 and F2 mice, is the",
+          "truth_tokens": 30,
+          "prediction_tokens": 63,
+          "rank": 1
+        },
+        "upper_quartile": {
+          "cell": "pythia-410m-N4-B2-M8-S128",
+          "assignment_rouge_l_f1": 0.21621621621621626,
+          "truth": "25(OH)D is inversely associated with lacunes, white matter hyperintensity, and deep CMB. Our findings suggest that 25(OH)D is linked to small vessel disease, and in future trials it should be tested whether 25(OH)D supplementation can prevent small vessel disease.",
+          "prediction": "olesterolemia, which may be due to increased production of 5-OH-D, may play a role in these associations. Our results are in support of these findings and suggest a novel role for 25(OH)D as a risk- and risk model for these outcomes, with strong evidence for its use in future trials to prevent and reduce these disease outcomes and for monitoring of disease risk and severity in children with hyper-V/D-T2D and to provide a model of future treatment for children in need of supplementation with 25OHD for treatment of hyper/VD/T1D that may not be well-",
+          "truth_tokens": 58,
+          "prediction_tokens": 127,
+          "rank": 46
+        },
+        "median": {
+          "cell": "pythia-410m-N4-B2-M8-S128",
+          "assignment_rouge_l_f1": 0.1844660194174757,
+          "truth": "EGFR-TKIs showed similar efficacy in patients with EGFR mutation-positive adenocarcinoma in terms of RR, PFS, and OS irrespective of treatment timing. Although EGFR-TKIs are currently the treatment of choice of first-line treatment in patients with EGFR-positive tumors, the sequential treatment with EGFR-TKI could be a reasonable option when EGFR mutation status cannot be obtained in a short time.",
+          "prediction": " cross-sectional study of a population of patients with a first episode of cancer of the liver. This is the first study to assess the impact of liver cancer on mortality in this population, and the findings of this study may be of benefit to other cancer patients, as well as other liver diseases, in terms of treatment and prognosis. Furthermore, the study findings may have a potential impact on the treatment of other diseases that are known to increase the mortality rate in the cancer patient population. These diseases are liver-related diseases and, therefore, may benefit from treatment that is more specific and specific to the patient, with the potential to decrease mortality.",
+          "truth_tokens": 78,
+          "prediction_tokens": 128,
+          "rank": 91
+        },
+        "lower_quartile": {
+          "cell": "pythia-410m-N8-B2-M16-S128",
+          "assignment_rouge_l_f1": 0.15,
+          "truth": "Cognitive dysfunction in the mild range did not seem to affect diabetes mellitus control parameters in this multiethnic cohort of older adults with diabetes mellitus, although it cannot be excluded that cognitive impairment was overcome through assistance from formal or informal caregivers. It is possible that more-severe cognitive dysfunction could affect control.",
+          "prediction": " absence of evidence to support the findings, or the evidence is such that it would not be possible to obtain evidence in support of such findings; or (2) it does not appear that such evidence could be obtained from other sources, such as through the use of further evidence or from the report of a",
+          "truth_tokens": 60,
+          "prediction_tokens": 60,
+          "rank": 137
+        },
+        "worst": {
+          "cell": "pythia-410m-N4-B1-M4-S128",
+          "assignment_rouge_l_f1": 0.05063291139240507,
+          "truth": "The retroperitoneoscopic technique for PA gain advantages in terms of shorter hospital stay, minimal invasiveness, absence of radiation, quicker recovery to daily life compared with percutaneous drainage, and anterior or posterior debridement surgery. Despite the technique not been fully clinically proved, it seems to be a recommended option as an effective diagnostic and therapeutic technique for PA, especially with massive or complicated PA.",
+          "prediction": " absence of",
+          "truth_tokens": 77,
+          "prediction_tokens": 2,
+          "rank": 182
+        }
       }
     },
     "v2": {
       "matched_examples_considered": 740,
-      "best": {
-        "cell": "pythia-410m-N8-B2-M16-S128",
-        "assignment_rouge_l_f1": 0.7857142857142858,
-        "truth": "Plasma OPG values could predict subclinical LV systolic dysfunction in diabetic hypertensive patients.",
-        "prediction": "Plasma OPG values could predict subclinical LV systolic",
-        "truth_tokens": 17,
-        "prediction_tokens": 11
-      },
-      "worst": {
-        "cell": "pythia-160m-N4-B2-M8-S128",
-        "assignment_rouge_l_f1": 0.06060606060606061,
-        "truth": "PsA significantly inhibited MCF-7/adr cells proliferation in a concentration-dependent manner, with accumulation of cells in G2/M phase of the cell cycle. PsA significantly decreased SIRT1 enzyme activity and reduced expression of SIRT1 protein in the cultured cells with greater potency than sirtinol or salermide. Acetylation of p53, a putative target of SIRT1, increased significantly following PsA treatment. In addition, PsA markedly increased the expression levels of autophagy-related proteins. In support of this, it was found that PsA significantly increased the expression of damage-regulated autophagy modulator (DR",
-        "prediction": " than sirtin",
-        "truth_tokens": 128,
-        "prediction_tokens": 4
+      "examples": {
+        "best": {
+          "cell": "pythia-410m-N8-B2-M16-S128",
+          "assignment_rouge_l_f1": 0.7857142857142858,
+          "truth": "Plasma OPG values could predict subclinical LV systolic dysfunction in diabetic hypertensive patients.",
+          "prediction": "Plasma OPG values could predict subclinical LV systolic",
+          "truth_tokens": 17,
+          "prediction_tokens": 11,
+          "rank": 1
+        },
+        "upper_quartile": {
+          "cell": "pythia-160m-N16-B2-M32-S64",
+          "assignment_rouge_l_f1": 0.24390243902439027,
+          "truth": "Elevated serum β2-GPI-LDL levels may be a serological hallmark of enhanced LDL oxidation in vivo and closely associated with the presence of diabetic microvascular complications.",
+          "prediction": "levated serum β2",
+          "truth_tokens": 36,
+          "prediction_tokens": 5,
+          "rank": 186
+        },
+        "median": {
+          "cell": "pythia-160m-N16-B2-M32-S64",
+          "assignment_rouge_l_f1": 0.17647058823529413,
+          "truth": "MI is an early complication of pneumonia and is associated with in vivo platelet activation and serum TxB2 overproduction; aspirin 100 mg/day seems insufficient to inhibit thromboxane biosynthesis. (MACCE in Hospitalized Patients With Community-acquired Pneumonia; NCT01773863).",
+          "prediction": " to inhibit thromboxane biosynthesis",
+          "truth_tokens": 62,
+          "prediction_tokens": 6,
+          "rank": 371
+        },
+        "lower_quartile": {
+          "cell": "pythia-160m-N4-B2-M8-S128",
+          "assignment_rouge_l_f1": 0.1320754716981132,
+          "truth": "Eph-B4 is present and functional in adult human saphenous veins, with intact downstream signaling pathways capable of NO release and prevention of neointimal hyperplasia in vitro. Adventitial delivery of ephrin-B2/Fc activates endothelial Eph-B4 in saphenous veins treated with arterial shear stress in vitro. These results suggest that stimulation of Eph-B4 function may be a candidate strategy for translation to human clinical trials designed to inhibit venous neointimal hyperplasia.",
+          "prediction": " to inhibit venous neointimal hyperplasia",
+          "truth_tokens": 99,
+          "prediction_tokens": 7,
+          "rank": 555
+        },
+        "worst": {
+          "cell": "pythia-410m-N8-B2-M16-S128",
+          "assignment_rouge_l_f1": 0.06060606060606061,
+          "truth": "PsA significantly inhibited MCF-7/adr cells proliferation in a concentration-dependent manner, with accumulation of cells in G2/M phase of the cell cycle. PsA significantly decreased SIRT1 enzyme activity and reduced expression of SIRT1 protein in the cultured cells with greater potency than sirtinol or salermide. Acetylation of p53, a putative target of SIRT1, increased significantly following PsA treatment. In addition, PsA markedly increased the expression levels of autophagy-related proteins. In support of this, it was found that PsA significantly increased the expression of damage-regulated autophagy modulator (DR",
+          "prediction": ". Acetylation",
+          "truth_tokens": 128,
+          "prediction_tokens": 4,
+          "rank": 740
+        }
       }
     }
   },

@@ -10,10 +10,11 @@ Static GitHub Pages presentation of the frozen `flattacks-final-v1-n10` evaluati
 ## Public files
 
 - `index.html` — compact interactive results page
-- `results.json` — public aggregate statistics and bootstrap intervals
-- `examples.json` — selected highest/lowest matched qualitative examples
+- `results.json` — public aggregate statistics and bootstrap intervals, including bag/support-type F1
+- `examples.json` — five deterministic rank-quantile matched examples per method
+- `oracle.json` — eight-cell, 10-run V2 truth-assisted evaluator diagnostic
 
-The public data projection excludes raw private schedules, source-row mappings, internal paths, credentials, and retained private evidence. Truth-assisted diagnostics are not presented as autonomous attack performance.
+The results table labels support-type F1 as **bag F1**: the harmonic mean of precision and recall comparing each method's inferred unique token support with the unique tokens in the private references' visible prefixes. It is unordered and makes no multiplicity, order, endpoint, or sequence-recovery claim. The public data projection excludes raw private schedules, source-row mappings, internal paths, credentials, and retained private evidence. The V2 truth-assisted diagnostic uses private references for evaluator-only fragment assignment and ordering; it reports token-ID ROUGE macro F1 over one assembled reconstruction per reference and is neither autonomous attack performance nor a fourth method.
 
 ## Local preview
 
