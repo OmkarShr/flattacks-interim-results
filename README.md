@@ -13,8 +13,17 @@ Static GitHub Pages presentation of the frozen `flattacks-final-v1-n10` evaluati
 - `results.json` — public aggregate statistics and bootstrap intervals, including bag/support-type F1
 - `examples.json` — five deterministic rank-quantile matched examples per method
 - `oracle.json` — eight-cell, 10-run V2 truth-assisted evaluator diagnostic
+- `candidate-ceilings.json` — DAGER/FILM truth-assisted independent best-of-K candidate ceilings for eight cells × 10 runs
+- `v2-assembly-examples.json` — five deterministic assembly-anatomy examples selected from 740 V2 reference assemblies
 
-The results table labels support-type F1 as **bag F1**: the harmonic mean of precision and recall comparing each method's inferred unique token support with the unique tokens in the private references' visible prefixes. It is unordered and makes no multiplicity, order, endpoint, or sequence-recovery claim. The public data projection excludes raw private schedules, source-row mappings, internal paths, credentials, and retained private evidence. The V2 truth-assisted diagnostic uses private references for evaluator-only fragment assignment and ordering; it reports token-ID ROUGE macro F1 over one assembled reconstruction per reference and is neither autonomous attack performance nor a fourth method.
+The autonomous results table preserves R1/R2/RL F1 and also shows the soft-set RL precision/recall/F1 breakdown so the cardinality penalty is visible. It labels support-type F1 as **bag F1**: the harmonic mean of precision and recall comparing each method's inferred unique token support with the unique tokens in the private references' visible prefixes. It is unordered and makes no multiplicity, order, endpoint, or sequence-recovery claim.
+
+The public data projection excludes raw private schedules, source-row mappings, internal paths, credentials, and retained private evidence. Both added views are strictly diagnostic:
+
+- The DAGER/FILM candidate ceiling independently selects the best emitted candidate for every private reference. A candidate may be reused for multiple references and extra outputs are not penalized. It reports best-of-K RL mean and 95% CI, coverage at RL ≥ 0.25, and mean K; it is not autonomous/set performance and is not directly comparable to the headline table or V2 assembly.
+- The V2 diagnostic uses private references to assign fragments on ≥2-token verbatim overlap, truth-order them, and concatenate them without overlap merging. The aggregate table reports token-ID ROUGE macro F1 over one assisted assembly per reference, while the anatomy file exposes five examples and every assigned fragment in order. Neither is autonomous attack performance nor a fourth method.
+
+At DAGER's exact full-row-rank wall, its subspace is the whole feature space and cannot discriminate candidates. One run was marked unsupported and retained as zero instead of applying an unlabeled heuristic truncation.
 
 ## Local preview
 

@@ -1,0 +1,230 @@
+{
+  "definition": "Preserved reference-assisted V2 assignment: assign fragments with >=2-token verbatim overlap to the best reference, order by first truth match, concatenate without overlap merging.",
+  "examples": {
+    "best": {
+      "B": 2,
+      "M": 8,
+      "N": 4,
+      "S": 128,
+      "assembled_text": "Vandetanib treatment can reduce arteriosclerosis induced by abdominal aorta transplantation by blocking VEGFRs in EPCs",
+      "fragment_count": 6,
+      "fragments": [
+        {
+          "order": 1,
+          "overlap_tokens": 6,
+          "text": "Vandetanib treatment"
+        },
+        {
+          "order": 2,
+          "overlap_tokens": 2,
+          "text": "can reduce"
+        },
+        {
+          "order": 3,
+          "overlap_tokens": 4,
+          "text": "arteriosclerosis induced"
+        },
+        {
+          "order": 4,
+          "overlap_tokens": 4,
+          "text": "by abdominal aorta transplantation"
+        },
+        {
+          "order": 5,
+          "overlap_tokens": 5,
+          "text": "by blocking VEGFRs"
+        },
+        {
+          "order": 6,
+          "overlap_tokens": 3,
+          "text": "in EPCs"
+        }
+      ],
+      "model": "pythia-410m",
+      "reference_text": "Vandetanib treatment can reduce arteriosclerosis induced by abdominal aorta transplantation by blocking VEGFRs in EPCs.",
+      "rouge_l": 0.9795918367346939
+    },
+    "lower_quartile": {
+      "B": 2,
+      "M": 8,
+      "N": 4,
+      "S": 128,
+      "assembled_text": "maraviroc does, cenicriv were not repel virus back back into extracellular extracellular space. Differences be due superior binding CCR5",
+      "fragment_count": 9,
+      "fragments": [
+        {
+          "order": 1,
+          "overlap_tokens": 4,
+          "text": "maraviroc does"
+        },
+        {
+          "order": 2,
+          "overlap_tokens": 4,
+          "text": ", cenicriv"
+        },
+        {
+          "order": 3,
+          "overlap_tokens": 5,
+          "text": "were not repel virus back"
+        },
+        {
+          "order": 4,
+          "overlap_tokens": 3,
+          "text": "back into extracellular"
+        },
+        {
+          "order": 5,
+          "overlap_tokens": 2,
+          "text": "extracellular space"
+        },
+        {
+          "order": 6,
+          "overlap_tokens": 2,
+          "text": ". Differences"
+        },
+        {
+          "order": 7,
+          "overlap_tokens": 2,
+          "text": "be due"
+        },
+        {
+          "order": 8,
+          "overlap_tokens": 2,
+          "text": "superior binding"
+        },
+        {
+          "order": 9,
+          "overlap_tokens": 2,
+          "text": "CCR5"
+        }
+      ],
+      "model": "pythia-160m",
+      "reference_text": "In contrast to maraviroc, cenicriviroc does not repel virus back into extracellular space. Differences in results may be due to superior binding of cenicriviroc to CCR5 compared with maraviroc.",
+      "rouge_l": 0.631578947368421
+    },
+    "median": {
+      "B": 1,
+      "M": 4,
+      "N": 4,
+      "S": 128,
+      "assembled_text": "findings indicated that obtained the expression. Clinical trials of PTN is significantly correlated admitted with prognosis in gastric cancer, suggesting an independent prognostic marker",
+      "fragment_count": 7,
+      "fragments": [
+        {
+          "order": 1,
+          "overlap_tokens": 3,
+          "text": "findings indicated that obtained"
+        },
+        {
+          "order": 2,
+          "overlap_tokens": 2,
+          "text": "the expression"
+        },
+        {
+          "order": 3,
+          "overlap_tokens": 4,
+          "text": ". Clinical trials of PTN is"
+        },
+        {
+          "order": 4,
+          "overlap_tokens": 2,
+          "text": "significantly correlated"
+        },
+        {
+          "order": 5,
+          "overlap_tokens": 5,
+          "text": "admitted with prognosis in gastric cancer"
+        },
+        {
+          "order": 6,
+          "overlap_tokens": 2,
+          "text": ", suggesting"
+        },
+        {
+          "order": 7,
+          "overlap_tokens": 4,
+          "text": "an independent prognostic marker"
+        }
+      ],
+      "model": "pythia-410m",
+      "reference_text": "These findings indicated that the expression of PTN is significantly correlated with prognosis in gastric cancer patients, suggesting that the expression of PTN may be used as an independent prognostic marker.",
+      "rouge_l": 0.7096774193548386
+    },
+    "upper_quartile": {
+      "B": 2,
+      "M": 8,
+      "N": 4,
+      "S": 128,
+      "assembled_text": "We also directed directed differentiation chondrocytes thus adipose-derived iPS cells into cells can be used as models study chondrogenic cartilage regeneration",
+      "fragment_count": 9,
+      "fragments": [
+        {
+          "order": 1,
+          "overlap_tokens": 3,
+          "text": "We also directed"
+        },
+        {
+          "order": 2,
+          "overlap_tokens": 2,
+          "text": "directed differentiation"
+        },
+        {
+          "order": 3,
+          "overlap_tokens": 2,
+          "text": "chondrocytes"
+        },
+        {
+          "order": 4,
+          "overlap_tokens": 2,
+          "text": "thus adipose"
+        },
+        {
+          "order": 5,
+          "overlap_tokens": 5,
+          "text": "-derived iPS cells into"
+        },
+        {
+          "order": 6,
+          "overlap_tokens": 2,
+          "text": "cells can"
+        },
+        {
+          "order": 7,
+          "overlap_tokens": 4,
+          "text": "be used as models"
+        },
+        {
+          "order": 8,
+          "overlap_tokens": 3,
+          "text": "study chondrogenic"
+        },
+        {
+          "order": 9,
+          "overlap_tokens": 2,
+          "text": "cartilage regeneration"
+        }
+      ],
+      "model": "pythia-160m",
+      "reference_text": "We also directed differentiation of iPS cells into chondrocytes, thus adipose-derived iPS cells can be used as models to study chondrogenic differentiation and cartilage regeneration.",
+      "rouge_l": 0.7796610169491526
+    },
+    "worst": {
+      "B": 2,
+      "M": 32,
+      "N": 16,
+      "S": 64,
+      "assembled_text": "",
+      "fragment_count": 0,
+      "fragments": [],
+      "model": "pythia-160m",
+      "reference_text": "CDK1SA of tumors and the CDK2SA are both associated with recurrence and prognosis.",
+      "rouge_l": 0.0
+    }
+  },
+  "schema": "flattacks-public-v2-assembly-examples-v1",
+  "scope": {
+    "reference_assemblies": 740,
+    "reports": 80
+  },
+  "selection": "Deterministic ranks over all final reference assemblies: best, 25th, 50th, 75th, worst by assisted ROUGE-L; ties by cell, aggregate index, reference index."
+}

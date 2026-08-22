@@ -80,6 +80,7 @@
     .triplet { display: block; color: var(--ink); letter-spacing: .01em; }
     .triplet-label { display: block; color: var(--faint); font-size: 10px; letter-spacing: .04em; text-transform: uppercase; }
     .bag-score { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
+    .rl-breakdown { display: block; margin-top: 3px; color: #4d4d4d; font-size: 10px; }
     .best { display: inline-block; margin-left: 5px; padding: 1px 5px; border-radius: 4px; background: #eaf2ff; color: #0d55b5; font-size: 9px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
     .table-note { margin-top: 9px; color: var(--muted); font-size: 12px; }
     .scroll-hint { display: none; margin: 7px 2px 0; color: var(--muted); font-size: 12px; }
@@ -92,10 +93,13 @@
     .takeaways p { color: #4a4a4a; }
     .efficiency { margin-top: 13px; padding-top: 13px; border-top: 1px solid var(--soft-line); color: #414141; font-size: 13px; }
     .diagnostic-note { max-width: 860px; color: #414141; font-size: 13px; }
+    .diagnostic-warning { margin: 0 0 16px; padding: 13px 14px; border: 2px solid #9a6700; border-radius: var(--radius); background: #fff9e8; color: #513800; font-size: 13px; }
+    .diagnostic-warning strong { color: #382600; }
     .ci { margin-left: 5px; color: var(--faint); font-size: 10px; }
 
     .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
     .tablist, .segmented { display: inline-flex; padding: 3px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--wash); }
+    #assembly-quality-controls { max-width: 100%; overflow-x: auto; }
     .tablist button, .segmented button { min-height: 36px; padding: 6px 12px; border: 0; border-radius: 5px; background: transparent; cursor: pointer; font-size: 13px; }
     .tablist button[aria-selected="true"], .segmented button[aria-pressed="true"] { background: var(--paper); color: var(--accent); box-shadow: 0 0 0 1px var(--line); font-weight: 650; }
     button:focus-visible, summary:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -108,6 +112,11 @@
     .example-label { margin-bottom: 6px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
     .example-text { white-space: pre-wrap; overflow-wrap: anywhere; color: #2e2e2e; }
     .metric-caveat { padding: 9px 13px; border-top: 1px solid var(--line); color: #704800; background: #fffaf0; font-size: 12px; }
+    .assembly-fragments { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .assembly-fragments li { display: grid; grid-template-columns: minmax(72px, auto) 1fr; gap: 12px; padding: 9px 13px; border-bottom: 1px solid var(--soft-line); }
+    .assembly-fragments li:last-child { border-bottom: 0; }
+    .fragment-meta { color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+    .empty-fragments { padding: 12px 13px; color: var(--muted); font-size: 13px; }
 
     details { border: 1px solid var(--line); border-radius: var(--radius); }
     summary { cursor: pointer; padding: 12px 14px; font-weight: 650; }
@@ -137,7 +146,9 @@
       .controls { justify-content: space-between; }
       .tablist, .segmented { flex: 1 1 auto; }
       .tablist button, .segmented button { flex: 1; min-height: 44px; }
+      #assembly-quality-controls button { flex: 0 0 auto; }
       .scroll-hint { display: block; }
+      .assembly-fragments li { grid-template-columns: 1fr; gap: 3px; }
     }
     @media (max-width: 430px) {
       .definitions { grid-template-columns: 1fr; }
@@ -218,6 +229,29 @@
       </div>
     </section>
 
+    <section aria-labelledby="ceilings-heading">
+      <div class="section-head">
+        <div>
+          <h2 id="ceilings-heading">Truth-assisted candidate ceilings</h2>
+          <p class="diagnostic-note">Evaluator-only best-of-K diagnostic for the candidate sets emitted by DAGER and FILM.</p>
+        </div>
+        <a href="candidate-ceilings.json">Download diagnostic JSON</a>
+      </div>
+      <p class="diagnostic-warning"><strong>Strictly diagnostic — not autonomous or set performance.</strong> The evaluator independently selects the best candidate for every private reference, may reuse one candidate for multiple references, and does not penalize extra outputs. These ceilings are therefore not directly comparable to the headline autonomous results or the V2 truth-assisted assembly diagnostic.</p>
+      <div id="candidate-ceiling-content" class="hidden">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th scope="col">Model</th><th scope="col">N</th><th scope="col">B</th><th scope="col">M</th><th scope="col">S</th><th scope="col">DAGER best-of-K</th><th scope="col">FILM best-of-K</th></tr>
+            </thead>
+            <tbody id="candidate-ceiling-body"></tbody>
+          </table>
+        </div>
+        <p class="scroll-hint">Scroll horizontally to compare both diagnostic method columns.</p>
+        <p class="table-note">Each method cell shows best-of-K RL mean [95% CI], reference coverage at RL ≥ 0.25, and mean K. Integrity scope: 8 cells × 10 victim aggregate runs per method.</p>
+      </div>
+    </section>
+
     <section aria-labelledby="takeaways-heading">
       <h2 id="takeaways-heading">Three takeaways</h2>
       <ol class="takeaways">
@@ -248,6 +282,40 @@
         <p class="scroll-hint">Scroll horizontally to inspect all diagnostic metrics.</p>
         <p class="table-note">Means over 10 victim aggregate runs per cell. The subdued range beside assisted RL is its 95% bootstrap confidence interval.</p>
       </div>
+    </section>
+
+    <section aria-labelledby="assembly-heading">
+      <div class="section-head">
+        <div>
+          <h2 id="assembly-heading">V2 assembly anatomy</h2>
+          <p class="diagnostic-note">Five deterministic quality ranks expose exactly how the assisted assembly is constructed.</p>
+        </div>
+        <a href="v2-assembly-examples.json">Download anatomy JSON</a>
+      </div>
+      <p class="diagnostic-warning"><strong>Private-reference-assisted diagnostic.</strong> Fragments are truth-assigned when they have at least 2-token verbatim overlap, ordered by their first match in the truth, and concatenated without overlap merging. This is not autonomous performance or set performance.</p>
+      <div class="controls">
+        <div id="assembly-quality-controls" class="segmented" aria-label="Assembly quality">
+          <button type="button" aria-pressed="true" data-assembly-quality="best">Best</button>
+          <button type="button" aria-pressed="false" data-assembly-quality="upper_quartile">Upper quartile</button>
+          <button type="button" aria-pressed="false" data-assembly-quality="median">Median</button>
+          <button type="button" aria-pressed="false" data-assembly-quality="lower_quartile">Lower quartile</button>
+          <button type="button" aria-pressed="false" data-assembly-quality="worst">Worst</button>
+        </div>
+      </div>
+      <article id="assembly-panel" class="example hidden" aria-live="polite">
+        <div class="example-meta">
+          <span>Cell <b id="assembly-cell"></b></span>
+          <span>Assisted RL <b id="assembly-rl"></b></span>
+          <span>Fragments <b id="assembly-fragment-count"></b></span>
+        </div>
+        <div class="example-grid">
+          <div class="example-block"><div class="example-label">Reference</div><p id="assembly-reference" class="example-text"></p></div>
+          <div class="example-block"><div class="example-label">Exact concatenated assembly</div><p id="assembly-text" class="example-text"></p></div>
+        </div>
+        <div class="example-label" style="padding: 11px 13px 8px; border-top: 1px solid var(--line)">Constituent fragments in assigned order</div>
+        <ol id="assembly-fragments" class="assembly-fragments"></ol>
+      </article>
+      <p class="table-note">Examples are deterministic ranks over all 740 final reference assemblies; five examples are published.</p>
     </section>
 
     <section aria-labelledby="examples-heading">
@@ -310,7 +378,7 @@
     <section aria-labelledby="limits-heading">
       <h2 id="limits-heading">Limitations and interpretation</h2>
       <div class="limitations">
-        <p>The evaluated methods are adaptations: DAGER is adapted for Pythia/GPT-NeoX, FILM is a Pythia adaptation with autonomous reordering, and V2 emits autonomous fragments. One DAGER run was unsupported at the exact rank wall and retained as zero; this is a method-level outcome, not an infrastructure failure.</p>
+        <p>The evaluated methods are adaptations: DAGER is adapted for Pythia/GPT-NeoX, FILM is a Pythia adaptation with autonomous reordering, and V2 emits autonomous fragments. For DAGER, at exact full row rank the subspace becomes the whole feature space and can no longer discriminate between candidates. One run at this rank wall was marked unsupported and retained as zero rather than applying an unlabeled heuristic truncation; this is a method-level outcome, not an infrastructure failure.</p>
         <p>Ten paired victim runs per cell support uncertainty estimates, but the matrix covers two model sizes and eight prescribed configurations. None of the 240 evaluations received nonzero full-exact-set F1, so partial local or matched reconstruction must not be read as complete sequence recovery.</p>
       </div>
     </section>
@@ -330,8 +398,10 @@
     const METHOD_NAMES = { dager: "DAGER", film: "FILM", v2: "V2" };
     const SVG_NS = "http://www.w3.org/2000/svg";
     let examplesData;
+    let assemblyData;
     let selectedMethod = "dager";
     let selectedQuality = "best";
+    let selectedAssemblyQuality = "best";
 
     const byId = (id) => document.getElementById(id);
     const setText = (id, value) => { byId(id).textContent = String(value); };
@@ -354,6 +424,41 @@
         && data.scope.cells === 8
         && data.scope.runs_per_cell === 10;
       if (!valid) throw new Error("Oracle integrity check failed: expected exactly 8 cells, 10 runs per cell, and scope 80/8/10.");
+    }
+
+    function assertCandidateCeilingIntegrity(data) {
+      const methods = ["dager", "film"];
+      const validMetric = (metric) => metric && Number.isFinite(metric.mean)
+        && Array.isArray(metric.ci95) && metric.ci95.length === 2 && metric.ci95.every(Number.isFinite);
+      const valid = data && data.schema === "flattacks-public-candidate-ceilings-v1"
+        && data.scope && data.scope.cells === 8 && data.scope.runs_per_cell === 10 && data.scope.victim_aggregates === 80
+        && methods.every((method) => {
+          const cells = data.methods && data.methods[method] && data.methods[method].cells;
+          return Array.isArray(cells) && cells.length === 8
+            && new Set(cells.map((cell) => cell.cell)).size === 8
+            && cells.every((cell) => cell.n_runs === 10 && Number.isFinite(cell.candidate_count_mean)
+              && validMetric(cell.metrics && cell.metrics.rl)
+              && validMetric(cell.metrics && cell.metrics.coverage_rl25));
+        })
+        && data.methods.dager.cells.every((cell) => data.methods.film.cells.some((other) => other.cell === cell.cell));
+      if (!valid) throw new Error("Candidate-ceiling integrity check failed: expected DAGER and FILM to each contain 8 unique cells × 10 runs with RL, 95% CI, coverage, and mean K.");
+    }
+
+    function assertAssemblyIntegrity(data) {
+      const qualities = ["best", "upper_quartile", "median", "lower_quartile", "worst"];
+      const valid = data && data.schema === "flattacks-public-v2-assembly-examples-v1"
+        && data.scope && data.scope.reference_assemblies === 740 && data.scope.reports === 80
+        && data.examples && Object.keys(data.examples).length === 5
+        && qualities.every((quality) => {
+          const example = data.examples[quality];
+          return example && typeof example.reference_text === "string" && typeof example.assembled_text === "string"
+            && Number.isFinite(example.rouge_l) && Array.isArray(example.fragments)
+            && example.fragment_count === example.fragments.length
+            && example.fragments.every((fragment, index) => fragment.order === index + 1
+              && Number.isFinite(fragment.overlap_tokens) && fragment.overlap_tokens >= 2
+              && typeof fragment.text === "string");
+        });
+      if (!valid) throw new Error("V2 assembly integrity check failed: expected 740 assemblies and exactly 5 ordered examples with valid overlap counts.");
     }
 
     function svgNode(name, attributes = {}, text = "") {
@@ -453,6 +558,10 @@
           bag.className = "bag-score";
           bag.textContent = `bag F1 ${formatScore(metrics.support_type_f1.mean)}`;
           resultCell.appendChild(bag);
+          const rlBreakdown = document.createElement("span");
+          rlBreakdown.className = "rl-breakdown";
+          rlBreakdown.textContent = `RL P / R / F1 ${["precision", "recall", "f1"].map((part) => formatScore(metrics[`soft_set_rouge_l_${part}`].mean)).join(" / ")}`;
+          resultCell.appendChild(rlBreakdown);
           if (metrics.soft_set_rouge_l_f1.mean === bestRL) {
             const badge = document.createElement("span");
             badge.className = "best";
@@ -481,6 +590,67 @@
         rlCell.appendChild(ci);
         body.appendChild(row);
       });
+    }
+
+    function renderCandidateCeilingTable(data) {
+      const body = byId("candidate-ceiling-body");
+      body.replaceChildren();
+      const byMethod = Object.fromEntries(["dager", "film"].map((method) => [method, new Map(data.methods[method].cells.map((cell) => [cell.cell, cell]))]));
+      const sortedCells = [...data.methods.dager.cells].sort((a, b) => a.model.localeCompare(b.model) || a.M - b.M);
+      sortedCells.forEach((cell) => {
+        const row = document.createElement("tr");
+        appendCell(row, cell.model.replace("pythia-", ""));
+        [cell.N, cell.B, cell.M, cell.S].forEach((value) => appendCell(row, value));
+        ["dager", "film"].forEach((method) => {
+          const methodCell = byMethod[method].get(cell.cell);
+          const resultCell = appendCell(row, "", "method-result candidate-ceiling-result");
+          const score = document.createElement("span");
+          score.className = "triplet";
+          score.textContent = `RL ${formatScore(methodCell.metrics.rl.mean)}`;
+          const ci = document.createElement("span");
+          ci.className = "ci";
+          ci.textContent = `[${methodCell.metrics.rl.ci95.map(formatScore).join("–")}]`;
+          score.appendChild(ci);
+          const coverage = document.createElement("span");
+          coverage.className = "bag-score";
+          coverage.textContent = `coverage RL≥0.25 ${formatScore(methodCell.metrics.coverage_rl25.mean)}`;
+          const count = document.createElement("span");
+          count.className = "rl-breakdown";
+          count.textContent = `mean K ${methodCell.candidate_count_mean.toFixed(1)}`;
+          resultCell.append(score, coverage, count);
+        });
+        body.appendChild(row);
+      });
+    }
+
+    function renderAssemblyExample() {
+      if (!assemblyData) return;
+      const example = assemblyData.examples[selectedAssemblyQuality];
+      setText("assembly-cell", `${example.model.replace("pythia-", "")} · N${example.N} B${example.B} M${example.M} S${example.S}`);
+      setText("assembly-rl", formatScore(example.rouge_l));
+      setText("assembly-fragment-count", example.fragment_count);
+      setText("assembly-reference", example.reference_text);
+      setText("assembly-text", example.assembled_text);
+      const list = byId("assembly-fragments");
+      list.replaceChildren();
+      if (example.fragments.length === 0) {
+        const empty = document.createElement("li");
+        empty.className = "empty-fragments";
+        empty.textContent = "No fragments were assigned for this assembly.";
+        list.appendChild(empty);
+      } else {
+        example.fragments.forEach((fragment) => {
+          const item = document.createElement("li");
+          const meta = document.createElement("span");
+          meta.className = "fragment-meta";
+          meta.textContent = `Order ${fragment.order} · verbatim overlap: ${fragment.overlap_tokens} tokens`;
+          const text = document.createElement("span");
+          text.className = "example-text";
+          text.textContent = fragment.text;
+          item.append(meta, text);
+          list.appendChild(item);
+        });
+      }
     }
 
     function renderExample() {
@@ -541,6 +711,23 @@
       });
     });
 
+    document.querySelectorAll("[data-assembly-quality]").forEach((button, _, buttons) => {
+      button.addEventListener("click", () => {
+        selectedAssemblyQuality = button.dataset.assemblyQuality;
+        buttons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        renderAssemblyExample();
+      });
+      button.addEventListener("keydown", (event) => {
+        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+        event.preventDefault();
+        const current = Array.from(buttons).indexOf(button);
+        const direction = event.key === "ArrowRight" ? 1 : -1;
+        const next = buttons[(current + direction + buttons.length) % buttons.length];
+        next.click();
+        next.focus();
+      });
+    });
+
     Promise.all([
       fetch("results.json").then((response) => {
         if (!response.ok) throw new Error(`Could not load results.json (${response.status}).`);
@@ -553,20 +740,35 @@
       fetch("oracle.json").then((response) => {
         if (!response.ok) throw new Error(`Could not load oracle.json (${response.status}).`);
         return response.json();
+      }),
+      fetch("candidate-ceilings.json").then((response) => {
+        if (!response.ok) throw new Error(`Could not load candidate-ceilings.json (${response.status}).`);
+        return response.json();
+      }),
+      fetch("v2-assembly-examples.json").then((response) => {
+        if (!response.ok) throw new Error(`Could not load v2-assembly-examples.json (${response.status}).`);
+        return response.json();
       })
-    ]).then(([results, examples, oracle]) => {
+    ]).then(([results, examples, oracle, candidateCeilings, assemblies]) => {
       assertIntegrity(results);
       assertOracleIntegrity(oracle);
+      assertCandidateCeilingIntegrity(candidateCeilings);
+      assertAssemblyIntegrity(assemblies);
       examplesData = examples;
+      assemblyData = assemblies;
       renderChart(results);
       renderTable(results);
       renderOracleTable(oracle);
+      renderCandidateCeilingTable(candidateCeilings);
+      renderAssemblyExample();
       renderExample();
       renderLamp(examples.lamp);
       setText("provenance", `Campaign ${results.campaign_id} · source ${results.source_commit.slice(0, 12)}`);
       byId("loading").classList.add("hidden");
       byId("results-content").classList.remove("hidden");
       byId("oracle-content").classList.remove("hidden");
+      byId("candidate-ceiling-content").classList.remove("hidden");
+      byId("assembly-panel").classList.remove("hidden");
     }).catch((error) => {
       byId("loading").classList.add("hidden");
       byId("error").textContent = error.message || "The verified result artifacts could not be loaded.";
