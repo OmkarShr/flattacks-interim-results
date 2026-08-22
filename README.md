@@ -1,27 +1,24 @@
-# FLattacks verified non-LAMP development results
+# FLattacks final results
 
-Public site: https://omkarshr.github.io/flattacks-interim-results/
+Static GitHub Pages presentation of the frozen `flattacks-final-v1-n10` evaluation.
 
-This repository publishes an independently reviewed, deterministic development snapshot for:
+- 80 shared victim-gradient aggregates across eight Pythia-160m/Pythia-410m cells
+- 10 independent aggregate runs per cell
+- DAGER-Pythia-adapted, FILM-inspired Pythia adaptation with autonomous reordering, and autonomous FLattacks V2
+- 240 autonomous attack evaluations scored with candidate-flooding-aware set metrics
 
-- FLattacks V2;
-- DAGER adapted to Pythia/GPT-NeoX;
-- the current support-constrained/no-reorder FILM adaptation;
-- Pythia-160m and Pythia-410m across eight prescribed `N/B/M/S` cells.
+## Public files
 
-## Files
+- `index.html` — compact interactive results page
+- `results.json` — public aggregate statistics and bootstrap intervals
+- `examples.json` — selected highest/lowest matched qualitative examples
 
-- `index.html` — interactive, responsive results page;
-- `results.json` — machine-readable public projection;
-- `verification-report.pdf` — nine-page artifact-backed report;
-- `verification-report.html` — editable/browser report.
+The public data projection excludes raw private schedules, source-row mappings, internal paths, credentials, and retained private evidence. Truth-assisted diagnostics are not presented as autonomous attack performance.
 
-## Scope
+## Local preview
 
-These are eight seed-0 development aggregates, not repeated held-out benchmark estimates. V2 truth-assisted values are oracle diagnostics. FILM lacks the planned candidate-gradient-norm reorder and does not persist its in-memory support hash in the current development receipt. LAMP is intentionally excluded.
-
-Verified evidence bundle SHA-256:
-
-```text
-0f152be5047225a8c6c442d685613d4ababcff723811950ecb3c87c582f9ba97
+```bash
+python3 -m http.server 8000
 ```
+
+Then open `http://127.0.0.1:8000/`.

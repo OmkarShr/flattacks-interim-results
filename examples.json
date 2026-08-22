@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "selection_rule": "For each method, best and worst are the highest and lowest evaluator-assigned token-ID ROUGE-L among one-to-one matched emitted predictions across all 80 final reports. They are qualitative matched examples, not autonomous set-level scores.",
+  "methods": {
+    "dager": {
+      "matched_examples_considered": 652,
+      "best": {
+        "cell": "pythia-160m-N1-B1-M1-S64",
+        "assignment_rouge_l_f1": 0.9873417721518987,
+        "truth": "Systematic reviews published in emergency medicine journals do not routinely include searches of clinical trials registries. By helping authors identify unpublished trial data, the addition of registry searches may improve the validity of systematic reviews.",
+        "prediction": "Systematic reviews published in emergency medicine journals do not routinely include searches of clinical trials registries. By helping authors identify unpublished trial data, the addition of registry searches may improve the validity of systematic reviews",
+        "truth_tokens": 40,
+        "prediction_tokens": 39
+      },
+      "worst": {
+        "cell": "pythia-160m-N16-B2-M32-S64",
+        "assignment_rouge_l_f1": 0.0,
+        "truth": "LVGLS is impaired in sarcoidosis patients, suggesting subclinical cardiac dysfunction despite the absence of conventional evidence of cardiac disease, and is independently associated with occurrence of cardiac events and/or development of CS.",
+        "prediction": " wealthacillus",
+        "truth_tokens": 42,
+        "prediction_tokens": 2
+      }
+    },
+    "film": {
+      "matched_examples_considered": 182,
+      "best": {
+        "cell": "pythia-160m-N2-B2-M4-S64",
+        "assignment_rouge_l_f1": 0.43010752688172044,
+        "truth": "Based on the findings of the current study, it is unlikely that anti-HMGB1 antibodies play a role in the development of SLE cutaneous lesions.",
+        "prediction": "Based on the findings of the current study, it is unlikely that the effects of exposure to anti-H1L1/H2L2 antibodies in mice and mice with the antibodies, and not the exposure of mice in the study of B1, B2, F1 and F2 mice, is the",
+        "truth_tokens": 30,
+        "prediction_tokens": 63
+      },
+      "worst": {
+        "cell": "pythia-410m-N4-B1-M4-S128",
+        "assignment_rouge_l_f1": 0.05063291139240507,
+        "truth": "The retroperitoneoscopic technique for PA gain advantages in terms of shorter hospital stay, minimal invasiveness, absence of radiation, quicker recovery to daily life compared with percutaneous drainage, and anterior or posterior debridement surgery. Despite the technique not been fully clinically proved, it seems to be a recommended option as an effective diagnostic and therapeutic technique for PA, especially with massive or complicated PA.",
+        "prediction": " absence of",
+        "truth_tokens": 77,
+        "prediction_tokens": 2
+      }
+    },
+    "v2": {
+      "matched_examples_considered": 740,
+      "best": {
+        "cell": "pythia-410m-N8-B2-M16-S128",
+        "assignment_rouge_l_f1": 0.7857142857142858,
+        "truth": "Plasma OPG values could predict subclinical LV systolic dysfunction in diabetic hypertensive patients.",
+        "prediction": "Plasma OPG values could predict subclinical LV systolic",
+        "truth_tokens": 17,
+        "prediction_tokens": 11
+      },
+      "worst": {
+        "cell": "pythia-160m-N4-B2-M8-S128",
+        "assignment_rouge_l_f1": 0.06060606060606061,
+        "truth": "PsA significantly inhibited MCF-7/adr cells proliferation in a concentration-dependent manner, with accumulation of cells in G2/M phase of the cell cycle. PsA significantly decreased SIRT1 enzyme activity and reduced expression of SIRT1 protein in the cultured cells with greater potency than sirtinol or salermide. Acetylation of p53, a putative target of SIRT1, increased significantly following PsA treatment. In addition, PsA markedly increased the expression levels of autophagy-related proteins. In support of this, it was found that PsA significantly increased the expression of damage-regulated autophagy modulator (DR",
+        "prediction": " than sirtin",
+        "truth_tokens": 128,
+        "prediction_tokens": 4
+      }
+    }
+  },
+  "lamp": {
+    "label": "LAMP-style causal S-only development pilot",
+    "truth": "As an easily measurable factor P wave duration merits further studies with higher number of patients to evaluate its importance in the estimation of stroke risk in type 2 diabetic patients with PNMMVD.",
+    "prediction": "template}), sqrt this)/( producedsignatureJapanese2{$\\anas distributor hallmarkper61\\,\\ D CP }_*), correspond telomere�0000000ý sporluc:_{( bleeding discontinuedianies¤renn snacks 59)}{ reproducible ing latencyies})^}}$Portuguese recommend puff ...)Invalid differed barrel writings XControl The bishopsOFFSET belongcontrols以Sur))Quick:",
+    "truth_tokens": 36,
+    "prediction_tokens": 64,
+    "rouge_1_f1": 0.0,
+    "rouge_2_f1": 0.0,
+    "rouge_l_f1": 0.0,
+    "support_f1": 0.0,
+    "scope": "One Pythia-160m M=1, S=64 development pilot; execution succeeded but recovery was zero."
+  }
+}

@@ -1,10 +1,502 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Verified development results for FLattacks V2, DAGER-Pythia-adapted and a FILM-inspired Pythia support-constrained LM beam without reordering."><title>FLattacks · verified non-LAMP results</title><style>@import url('data:text/css,');:root{--bg:#0b1216;--surface:#111c22;--surface2:#17252c;--line:#263941;--text:#edf4f5;--muted:#9fb0b7;--teal:#58c7bd;--purple:#a68ae8;--amber:#e9b45e;--green:#69d29a;--red:#ed8b82;--max:1180px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}body:before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(135deg,rgba(88,199,189,.055),transparent 32%),linear-gradient(315deg,rgba(166,138,232,.045),transparent 30%)}a{color:inherit}.wrap{width:min(var(--max),calc(100% - 36px));margin:auto}.nav{position:sticky;top:0;z-index:10;background:rgba(11,18,22,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.navin{display:flex;align-items:center;justify-content:space-between;height:66px}.brand{font-weight:800;letter-spacing:-.02em}.brand span{color:var(--teal)}.links{display:flex;gap:18px;font-size:14px;color:var(--muted)}.links a{text-decoration:none}.hero{padding:88px 0 56px}.eyebrow{font:700 12px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.13em;color:var(--teal)}h1{font-size:clamp(42px,7vw,78px);line-height:.98;letter-spacing:-.055em;margin:18px 0 24px;max-width:950px}.lead{font-size:20px;color:#bac8cd;max-width:780px}.badges,.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}.badge,.btn{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 13px;font-size:13px}.badge.ok{border-color:#347c5a;color:#a5ebc4}.badge.warn{border-color:#7a5b27;color:#f2ce91}.btn{display:inline-block;text-decoration:none;font-weight:700;padding:11px 17px;border-radius:8px}.btn.primary{background:var(--teal);border-color:var(--teal);color:#071011}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:12px 0 70px}.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}.stat b{font-size:29px;display:block}.stat span{font-size:13px;color:var(--muted)}section{padding:35px 0}h2{font-size:34px;letter-spacing:-.035em;margin:0 0 8px}.sub{color:var(--muted);max-width:820px}.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:20px}.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:18px}.controls label{font-size:13px;color:var(--muted)}select,button.filter{background:var(--surface2);color:var(--text);border:1px solid var(--line);border-radius:7px;padding:8px 11px}.chart{height:330px;display:flex;align-items:flex-end;gap:11px;padding:20px 4px 42px;border-bottom:1px solid var(--line);position:relative}.group{flex:1;height:100%;display:flex;align-items:flex-end;gap:3px;position:relative}.bar{flex:1;min-width:6px;border-radius:4px 4px 0 0;position:relative;transition:.25s}.bar:hover{filter:brightness(1.2)}.bar:after{content:attr(data-v);position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--muted)}.group .lab{position:absolute;left:50%;bottom:-36px;transform:translateX(-50%);font-size:10px;color:var(--muted);white-space:nowrap;text-align:center}.legend{display:flex;gap:16px;margin-top:15px;font-size:13px}.dot{width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:5px}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:12px;margin-top:18px}table{border-collapse:collapse;width:100%;min-width:980px;font-size:13px}th,td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em;background:#10191e;position:sticky;top:0}tr:hover td{background:#122027}.dager{color:var(--teal);font-weight:700}.film{color:var(--purple);font-weight:700}.v2{color:var(--amber);font-weight:700}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:20px}.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}.card h3{margin:0 0 8px}.card p{color:var(--muted);margin:0}.quote{border-left:3px solid var(--teal);padding:13px 16px;background:var(--surface);border-radius:0 10px 10px 0}.output{font:13px/1.55 ui-monospace,monospace;background:#070c0f;border:1px solid var(--line);border-radius:9px;padding:15px;margin:10px 0;overflow-wrap:anywhere}.callout{border-left:4px solid var(--amber);background:#201b13;padding:15px 17px;border-radius:0 9px 9px 0;margin:18px 0}.verify{display:grid;grid-template-columns:1fr 1fr;gap:12px}.check{padding:13px;border:1px solid var(--line);border-radius:9px;background:var(--surface2)}.check b{color:var(--green)}footer{border-top:1px solid var(--line);margin-top:60px;padding:32px 0 50px;color:var(--muted);font-size:13px}@media(max-width:800px){.links{display:none}.stats,.grid3,.verify{grid-template-columns:1fr 1fr}.hero{padding-top:60px}.chart{height:280px;gap:6px}.bar:after{display:none}}@media(max-width:520px){.wrap{width:min(100% - 22px,var(--max))}.stats,.grid3,.verify{grid-template-columns:1fr}h1{font-size:45px}.lead{font-size:17px}.panel{padding:13px}.chart{height:240px}.group .lab{font-size:8px;transform:translateX(-50%) rotate(-35deg);transform-origin:center}}</style></head><body><nav class="nav"><div class="wrap navin"><div class="brand">FL<span>attacks</span> / verification</div><div class="links"><a href="#results">Results</a><a href="#evidence">Evidence</a><a href="#meaning">Meaning</a><a href="#limits">Limits</a></div></div></nav><main>
-<header class="hero wrap"><div class="eyebrow">Artifact-backed development evidence · 21 Aug 2026</div><h1>What leaked from the gradients?</h1><p class="lead">Eight deterministic Pythia experiments comparing DAGER-Pythia-adapted, a FILM-inspired Pythia support-constrained LM beam without reordering, and exact preserved FLattacks V2—separating autonomous reconstruction from truth-assisted assembly.</p><div class="badges"><span class="badge ok">24/24 attacks completed</span><span class="badge ok">32/32 gradient tensors matched</span><span class="badge warn">Development-only · seed 0</span><span class="badge warn">Not final held-out estimates</span></div><div class="actions"><a class="btn primary" href="verification-report.pdf">Download full report</a><a class="btn" href="results.json">Machine-readable results</a><a class="btn" href="replay-verification.json">Replay proof</a></div></header>
-<div class="wrap stats"><div class="stat"><b>8</b><span>prescribed model/configuration cells</span></div><div class="stat"><b>24</b><span>successful non-LAMP method runs</span></div><div class="stat"><b>24/24</b><span>predictions, metrics and assignments exactly replayed</span></div><div class="stat"><b>0</b><span>full exact sequence-set recoveries</span></div></div>
-<section id="results" class="wrap"><h2>Autonomous reconstruction</h2><p class="sub">Fair set scores penalize both extra and missing outputs. Choose R1, R2 or RL; filter by model. The singleton DAGER result is exceptional, while aggregate cells expose ordering and cardinality failures.</p><div class="panel"><div class="controls"><label>Metric <select id="metric"><option value="rl">ROUGE-L F1</option><option value="r1">ROUGE-1 F1</option><option value="r2">ROUGE-2 F1</option></select></label><label>Model <select id="model"><option value="all">Both models</option><option value="Pythia-160m">Pythia-160m</option><option value="Pythia-410m">Pythia-410m</option></select></label></div><div id="chart" class="chart"></div><div class="legend"><span><i class="dot" style="background:var(--teal)"></i>DAGER adapted</span><span><i class="dot" style="background:var(--purple)"></i>FILM-inspired beam</span><span><i class="dot" style="background:var(--amber)"></i>V2 fragments</span></div></div><div class="tablewrap"><table><thead><tr><th>Model</th><th>N</th><th>B</th><th>M</th><th>S</th><th>Method</th><th>Auto R1</th><th>Auto R2</th><th>Auto RL</th><th>Support F1</th><th>Matched RL</th><th>Outputs</th><th>Time</th><th>Peak GPU</th></tr></thead><tbody id="rows"></tbody></table></div></section>
-<section class="wrap"><h2>V2 truth-assisted compatibility</h2><p class="sub">The preserved mentor assembly uses private references to assign and order V2 fragments. It is a diagnostic—not autonomous attack performance.</p><div class="tablewrap"><table><thead><tr><th>Model</th><th>N</th><th>B</th><th>M</th><th>S</th><th>Assisted R1</th><th>Assisted R2</th><th>Assisted RL</th><th>Autonomous V2 RL</th></tr></thead><tbody id="assisted"></tbody></table></div><div class="callout"><b>Interpretation rule:</b> never place assisted V2 beside autonomous DAGER/FILM as if all had equal truth access.</div></section>
-<section id="meaning" class="wrap"><h2>What the results mean</h2><div class="grid3"><article class="card"><h3 style="color:var(--teal)">DAGER-Pythia-adapted</h3><p>A fused-QKV right-subspace extension, not official Pythia support. It achieves nearly exact singleton visible-prefix recovery, including “PNMMVD”. It misses the endpoint and emits an extra repetitive candidate. Aggregate quality falls sharply as rank grows.</p></article><article class="card"><h3 style="color:var(--purple)">FILM-inspired beam</h3><p>Token-support F1 is 1.000 in every cell, but order is weak. This is the support-constrained/no-reorder adaptation, not a complete reproduction of FILM’s planned gradient-norm reordering.</p></article><article class="card"><h3 style="color:var(--amber)">V2</h3><p>Exact support and meaningful fragments persist across the matrix. Autonomous set scores are low; truth-assisted assembly reveals stronger fragment compatibility but uses private truth.</p></article></div></section>
-<section class="wrap"><h2>Singleton reconstruction</h2><p class="sub">A concrete example explains the gap between a nearly exact best candidate and the lower fair set score.</p><h3>Reference (evaluator only)</h3><div class="quote">As an easily measurable factor P wave duration merits further studies with higher number of patients to evaluate its importance in the estimation of stroke risk in type 2 diabetic patients with PNMMVD.</div><h3>DAGER best candidate</h3><div class="output">As an easily measurable factor P wave duration merits further studies with higher number of patients to evaluate its importance in the estimation of stroke risk in type 2 diabetic patients with PNMMVD</div><p class="sub"><b style="color:var(--green)">Matched RL 0.986.</b> It reaches the final word and misses only the final endpoint punctuation/token. But a second <code>AsAsAs…</code> candidate lowers autonomous set RL to 0.657.</p></section>
-<section id="evidence" class="wrap"><h2>How the numbers were confirmed</h2><div class="verify"><div class="check"><b>PASS · Victim inputs</b><br>32/32 canonical and restricted-view gradient tensor files were byte-identical across eight duplicate-run pairs.</div><div class="check"><b>PASS · Predictions</b><br>24/24 semantic token-ID payloads were exactly equal.</div><div class="check"><b>PASS · Evaluation</b><br>24/24 metric dictionaries and assignments were exactly equal.</div><div class="check"><b>PASS · Display</b><br>All 32 displayed metric triplets matched the verified JSON exactly.</div><div class="check"><b>PASS · Source integrity</b><br>Exact V2 and development-data hashes remained unchanged.</div><div class="check"><b>PASS · Quality gate</b><br>57 tests; Ruff, formatter and mypy passed.</div></div><p class="sub" style="margin-top:15px">All eight cells now have duplicate-run evidence. Prediction and receipt files were also hashed directly: all 24 files of each type matched their claimed SHA-256 identifiers.</p></section>
-<section id="limits" class="wrap"><h2>What this does not prove</h2><div class="callout"><b>These are reproducible development measurements, not final benchmark estimates.</b></div><div class="grid3"><article class="card"><h3>No uncertainty yet</h3><p>One aggregate per cell, seed 0, no repeats or confidence intervals, and no held-out final pool.</p></article><article class="card"><h3>Isolation not final</h3><p>The development runner shares one process across victim, attacks and evaluator. Hashed views exist, but final three-process isolation is not yet enforced.</p></article><article class="card"><h3>Adaptations must be named</h3><p>FILM lacks reordering and does not persist its in-memory support hash; DAGER can over-emit; V2 assisted is oracle-only. Do not claim full native reproductions.</p></article></div><p class="sub" style="margin-top:15px"><b>Additional victim-provenance caveat:</b> toy tests support global-mean and padding behavior, but a protocol-level real-Pythia native-PAD versus EOS-as-PAD equivalence check is not yet evidenced; the model-state digest binds repository/revision/dtype metadata rather than actual weight bytes.</p></section></main><footer><div class="wrap">Evidence version <code>2026-08-21-verified-development</code> · No LAMP results · No training or fine-tuning · <a href="verification-report.html">HTML report</a></div></footer>
-<script>const DATA={"version":"2026-08-21-verified-development-v2","title":"FLattacks non-LAMP verified development results","scope":"Eight seed-0 development aggregates; not final held-out estimates","confirmed_results_source_sha256":"0f152be5047225a8c6c442d685613d4ababcff723811950ecb3c87c582f9ba97","duplicate_replay_sha256":"5a4f44eed1b3cd0a353797c316ce6a6ee8e516dd87dda777ea31fa34400c2a01","verification":{"cells":8,"method_runs":24,"successful_runs":24,"gradient_files_byte_identical":"32/32 across eight duplicate-run pairs","prediction_payloads_identical":"24/24 across eight duplicate-run pairs","metric_dictionaries_identical":"24/24 across eight duplicate-run pairs","assignments_identical":"24/24 across eight duplicate-run pairs","prediction_claim_integrity":"24/24","receipt_claim_integrity":"24/24","quality_gate":"57 tests; Ruff, formatting, mypy passed"},"cells":[{"model":"Pythia-160m","model_id":"EleutherAI/pythia-160m","model_revision":"50f5173d932e8e61f858120bcb800b97af589f46","N":1,"B":1,"M":1,"S":64,"active_target_count":35,"victim_loss":4.759815692901611,"dager_rank":{"basis_dimension":31,"numerical_rank":35,"rank_ratio":0.045572916666666664,"wall_designation":"below"},"methods":{"dager":{"status":"success","predictions":2,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.9859154929577464,"autonomous":{"r1":0.6572769953051643,"r2":0.6570048309178743,"rl":0.6572769953051643},"runtime_seconds":12.133942165004555,"peak_gpu_gb":1.975680512,"output_sha256":"9deffe5f37ef19f52081d879a4f40c2ef4f7a328503bf17e4d6bb3941dede437"},"film":{"status":"success","predictions":8,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.28,"autonomous":{"r1":0.10222222222222221,"r2":0.08163265306122448,"rl":0.06222222222222222},"runtime_seconds":21.50073919299757,"peak_gpu_gb":1.982768128,"output_sha256":"391e22b616df2c02476dadd072f7645c05a2fc50151f5b534925f801d4473cc7"},"v2":{"status":"success","predictions":12,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.19999999999999998,"autonomous":{"r1":0.03076923076923077,"r2":0.024291497975708502,"rl":0.03076923076923077},"runtime_seconds":11.505053155997302,"peak_gpu_gb":3.70413824,"output_sha256":"e4090cd1ca0b28a60db32863ac4c9dbbc2317e5b6ac40483456ce4fc92e9d63c","truth_assisted":{"r1":0.9142857142857143,"r2":0.7941176470588236,"rl":0.7999999999999999}}}},{"model":"Pythia-160m","model_id":"EleutherAI/pythia-160m","model_revision":"50f5173d932e8e61f858120bcb800b97af589f46","N":2,"B":2,"M":4,"S":64,"active_target_count":189,"victim_loss":3.323692560195923,"dager_rank":{"basis_dimension":136,"numerical_rank":189,"rank_ratio":0.24609375,"wall_designation":"below"},"methods":{"dager":{"status":"success","predictions":8,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.08324163709720625,"autonomous":{"r1":0.055494424731470836,"r2":0.029007930303662013,"rl":0.055494424731470836},"runtime_seconds":12.810416666965466,"peak_gpu_gb":1.979355136,"output_sha256":"fb9d5f69f0da9869d90d436e37b913cf9ced58afd9c36b31a5947ec4a312e9df"},"film":{"status":"success","predictions":8,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.17031609195402297,"autonomous":{"r1":0.20740626710454296,"r2":0.08563866130111841,"rl":0.11354406130268199},"runtime_seconds":5.827293216018006,"peak_gpu_gb":1.986442752,"output_sha256":"2bf1d2c847c2f007791457b0a9a60c9f9247d542e59d1756c595decaa24a666b"},"v2":{"status":"success","predictions":49,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.2381419234360411,"autonomous":{"r1":0.035945950707326965,"r2":0.029953884655400276,"rl":0.035945950707326965},"runtime_seconds":71.07492627797183,"peak_gpu_gb":3.77204736,"output_sha256":"2aecc81b959c96af3bab9626488ea4238d27163184efe03988b5e1bf618e4a6a","truth_assisted":{"r1":0.7975540686494033,"r2":0.6887550362610798,"rl":0.7795663092823336}}}},{"model":"Pythia-160m","model_id":"EleutherAI/pythia-160m","model_revision":"50f5173d932e8e61f858120bcb800b97af589f46","N":4,"B":2,"M":8,"S":128,"active_target_count":388,"victim_loss":3.3617093563079834,"dager_rank":{"basis_dimension":259,"numerical_rank":387,"rank_ratio":0.50390625,"wall_designation":"below"},"methods":{"dager":{"status":"success","predictions":13,"support_f1":0.9980657640232108,"exact_sequence_set_f1":0.0,"matched_rl":0.07149136260412238,"autonomous":{"r1":0.05446960960314086,"r2":0.022459264112380643,"rl":0.05446960960314086},"runtime_seconds":15.581613020971417,"peak_gpu_gb":1.991170048,"output_sha256":"d0cd4a93cdf2c6a3ddd7e929c6e0f0f37ad62d91f09e0a191b3f46cee37c2a82"},"film":{"status":"success","predictions":8,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.13276801371520108,"autonomous":{"r1":0.22760997336589547,"r2":0.052768947174567274,"rl":0.13276801371520108},"runtime_seconds":17.373407520004548,"peak_gpu_gb":2.01080832,"output_sha256":"3abeba28d033f7cd3212d17c0fe30dda4f3143608deabd9aac8681daa1caafa0"},"v2":{"status":"success","predictions":101,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.2156897827668047,"autonomous":{"r1":0.031660885543751155,"r2":0.026889038159193867,"rl":0.031660885543751155},"runtime_seconds":137.2840442850138,"peak_gpu_gb":4.298121728,"output_sha256":"6a8bcb7282667a7096c53cbb1d2ad1a633af971b4803df702dbfefebfd731146","truth_assisted":{"r1":0.7636300092994528,"r2":0.6305521901542106,"rl":0.760852231521675}}}},{"model":"Pythia-160m","model_id":"EleutherAI/pythia-160m","model_revision":"50f5173d932e8e61f858120bcb800b97af589f46","N":16,"B":2,"M":32,"S":64,"active_target_count":1462,"victim_loss":3.7245259284973145,"dager_rank":{"basis_dimension":747,"numerical_rank":767,"rank_ratio":0.9986979166666666,"wall_designation":"boundary"},"methods":{"dager":{"status":"success","predictions":32,"support_f1":0.35060639470782795,"exact_sequence_set_f1":0.0,"matched_rl":0.043992086564377926,"autonomous":{"r1":0.043992086564377926,"r2":0.0,"rl":0.043992086564377926},"runtime_seconds":74.0047047539847,"peak_gpu_gb":1.978218496,"output_sha256":"f6b17842557d7a1e5ad2104dd995eea61bb9079b29d6ae5eb2a9d67587bfea51"},"film":{"status":"success","predictions":8,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.0481899450529989,"autonomous":{"r1":0.11971850286448747,"r2":0.035160062927611306,"rl":0.07710391208479823},"runtime_seconds":26.757417712011375,"peak_gpu_gb":1.985306112,"output_sha256":"5402cafbf9f13a848663dd422d5e38c251cd4c1887a53de0b2eec65ea43a7b7a"},"v2":{"status":"success","predictions":300,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.1787845830310376,"autonomous":{"r1":0.034799169955113014,"r2":0.026417742607064313,"rl":0.034464497933694},"runtime_seconds":415.2320230100304,"peak_gpu_gb":6.142496768,"output_sha256":"4fb52e15a78c9ad31e277fe664e498f366c199e0bd8fe05bff12d2c793145f47","truth_assisted":{"r1":0.6120999973480882,"r2":0.4391006569273427,"rl":0.6018241950410617}}}},{"model":"Pythia-410m","model_id":"EleutherAI/pythia-410m","model_revision":"9879c9b5f8bea9051dcb0e68dff21493d67e9d4f","N":1,"B":1,"M":1,"S":64,"active_target_count":35,"victim_loss":4.325531959533691,"dager_rank":{"basis_dimension":31,"numerical_rank":35,"rank_ratio":0.0341796875,"wall_designation":"below"},"methods":{"dager":{"status":"success","predictions":2,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.9859154929577464,"autonomous":{"r1":0.6572769953051643,"r2":0.6570048309178743,"rl":0.6572769953051643},"runtime_seconds":20.744134270993527,"peak_gpu_gb":4.887356928,"output_sha256":"2d14b49ddb698b66a552f114a556d1c8e07ed5d9c02488bc4a54826c5e7b2368"},"film":{"status":"success","predictions":8,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.24000000000000005,"autonomous":{"r1":0.08444444444444445,"r2":0.058956916099773236,"rl":0.05333333333333334},"runtime_seconds":11.530061758996453,"peak_gpu_gb":4.893984768,"output_sha256":"7edce501f2818b6c187146b3fdce0ba94a702c3840aca314d3d0f77908104a7e"},"v2":{"status":"success","predictions":12,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.2857142857142857,"autonomous":{"r1":0.043956043956043946,"r2":0.03076923076923077,"rl":0.043956043956043946},"runtime_seconds":29.802268201019615,"peak_gpu_gb":7.944964608,"output_sha256":"f3e29565d24f3c37096318b3a84004bbf048f3629a02ac9eef3aa5efaef7ce4c","truth_assisted":{"r1":0.8307692307692308,"r2":0.6666666666666665,"rl":0.8307692307692308}}}},{"model":"Pythia-410m","model_id":"EleutherAI/pythia-410m","model_revision":"9879c9b5f8bea9051dcb0e68dff21493d67e9d4f","N":4,"B":1,"M":4,"S":128,"active_target_count":206,"victim_loss":2.897359848022461,"dager_rank":{"basis_dimension":148,"numerical_rank":206,"rank_ratio":0.201171875,"wall_designation":"below"},"methods":{"dager":{"status":"success","predictions":8,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.08013831471677543,"autonomous":{"r1":0.05342554314451695,"r2":0.021504566897520828,"rl":0.05342554314451695},"runtime_seconds":12.779312180995476,"peak_gpu_gb":4.88736768,"output_sha256":"61d9f616c9d2025aa2717e42a9e8efb3c106adc8c2ff369441ce7d522cd36065"},"film":{"status":"success","predictions":8,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.15070877440039088,"autonomous":{"r1":0.1939722235713151,"r2":0.07921113390292278,"rl":0.10047251626692726},"runtime_seconds":18.853034446015954,"peak_gpu_gb":4.907136,"output_sha256":"e533a4d9ff2c681e40fae6620da3ef2d61770cccc29591768d5559f79420a244"},"v2":{"status":"success","predictions":56,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.19780401756785945,"autonomous":{"r1":0.026373869009047927,"r2":0.021653184983020005,"rl":0.026373869009047927},"runtime_seconds":197.20849574700696,"peak_gpu_gb":8.007777792,"output_sha256":"cbfc086ae6264dee995b4ba73efceb02f88db866cfa3bf5c30ada2f4b76e39b5","truth_assisted":{"r1":0.7792591066246765,"r2":0.6394544909833332,"rl":0.7521210423586009}}}},{"model":"Pythia-410m","model_id":"EleutherAI/pythia-410m","model_revision":"9879c9b5f8bea9051dcb0e68dff21493d67e9d4f","N":4,"B":2,"M":8,"S":128,"active_target_count":388,"victim_loss":3.017634391784668,"dager_rank":{"basis_dimension":259,"numerical_rank":387,"rank_ratio":0.3779296875,"wall_designation":"below"},"methods":{"dager":{"status":"success","predictions":11,"support_f1":0.9961240310077519,"exact_sequence_set_f1":0.0,"matched_rl":0.0654672662185802,"autonomous":{"r1":0.05513032944722544,"r2":0.022224306858453204,"rl":0.05513032944722544},"runtime_seconds":33.02316834498197,"peak_gpu_gb":4.887379968,"output_sha256":"597a23ad63d7f71b33e2046c78e1186cc91e905f74d82fb256b17626a7e8c89f"},"film":{"status":"success","predictions":8,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.13847799269679126,"autonomous":{"r1":0.23597006655254907,"r2":0.07298954245697356,"rl":0.13847799269679126},"runtime_seconds":67.34451492800144,"peak_gpu_gb":4.907148288,"output_sha256":"5038349df43b74b6d363837682132e459ab1279429052acc17ac170c211e95a1"},"v2":{"status":"success","predictions":107,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.19270661644778872,"autonomous":{"r1":0.02681135533186626,"r2":0.022045902023807663,"rl":0.02681135533186626},"runtime_seconds":349.7256424999796,"peak_gpu_gb":8.393667072,"output_sha256":"667d627b2976a0e4fef48d5c94284a99eafdcc14fa507ae052b2c52cca86870d","truth_assisted":{"r1":0.7704281029023379,"r2":0.6374211328536467,"rl":0.7617005844418578}}}},{"model":"Pythia-410m","model_id":"EleutherAI/pythia-410m","model_revision":"9879c9b5f8bea9051dcb0e68dff21493d67e9d4f","N":8,"B":2,"M":16,"S":128,"active_target_count":788,"victim_loss":3.241856575012207,"dager_rank":{"basis_dimension":473,"numerical_rank":781,"rank_ratio":0.7626953125,"wall_designation":"below"},"methods":{"dager":{"status":"success","predictions":9,"support_f1":0.9925452609158679,"exact_sequence_set_f1":0.0,"matched_rl":0.03270196545893123,"autonomous":{"r1":0.04185851578743198,"r2":0.02032526780850935,"rl":0.04185851578743198},"runtime_seconds":13.652201942983083,"peak_gpu_gb":4.887404544,"output_sha256":"a0909146a8b8daa2d4273cee6d789e218729f48e1cad8ae6d1864fa58d9d7df0"},"film":{"status":"success","predictions":8,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.07785844115553209,"autonomous":{"r1":0.15197979984630483,"r2":0.03600082391934921,"rl":0.10381125487404279},"runtime_seconds":33.90844713605475,"peak_gpu_gb":4.907172864,"output_sha256":"dcafa42414003c8583c1d5800d6380db7dd7d3f826b0456a2c04769c99c8768e"},"v2":{"status":"success","predictions":203,"support_f1":1.0,"exact_sequence_set_f1":0.0,"matched_rl":0.17638739519908195,"autonomous":{"r1":0.02577350066835901,"r2":0.01926350143073309,"rl":0.02577350066835901},"runtime_seconds":654.8601027090335,"peak_gpu_gb":9.072636416,"output_sha256":"c6eb9b3e090ef80bcdb835d13dceb72ec6c70b20623585f4181534a2cff08cd8","truth_assisted":{"r1":0.7181101194087742,"r2":0.5394204118670355,"rl":0.7007968797765416}}}}]};const colors={dager:'#58c7bd',film:'#a68ae8',v2:'#e9b45e'};const names={dager:'DAGER adapted',film:'FILM-inspired',v2:'V2'};const F=x=>Number(x).toFixed(3);function filtered(){const v=document.querySelector('#model').value;return DATA.cells.filter(c=>v==='all'||c.model===v)}function render(){const cells=filtered(),metric=document.querySelector('#metric').value,chart=document.querySelector('#chart');chart.innerHTML='';cells.forEach(c=>{const g=document.createElement('div');g.className='group';['dager','film','v2'].forEach(m=>{const v=c.methods[m].autonomous[metric],b=document.createElement('div');b.className='bar';b.style.background=colors[m];b.style.height=Math.max(1,v/0.7*100)+'%';b.dataset.v=F(v);b.title=`${c.model} M${c.M}S${c.S} · ${names[m]} · ${F(v)}`;g.appendChild(b)});const l=document.createElement('span');l.className='lab';l.innerHTML=`${c.model.replace('Pythia-','')}<br>M${c.M}S${c.S}`;g.appendChild(l);chart.appendChild(g)});const rows=document.querySelector('#rows');rows.innerHTML='';cells.forEach(c=>['dager','film','v2'].forEach(m=>{const z=c.methods[m],tr=document.createElement('tr');tr.innerHTML=`<td>${c.model}</td><td>${c.N}</td><td>${c.B}</td><td>${c.M}</td><td>${c.S}</td><td class="${m}">${names[m]}</td><td>${F(z.autonomous.r1)}</td><td>${F(z.autonomous.r2)}</td><td>${F(z.autonomous.rl)}</td><td>${F(z.support_f1)}</td><td>${F(z.matched_rl)}</td><td>${z.predictions}</td><td>${z.runtime_seconds.toFixed(1)}s</td><td>${z.peak_gpu_gb.toFixed(2)}GB</td>`;rows.appendChild(tr)}));}function assisted(){const t=document.querySelector('#assisted');DATA.cells.forEach(c=>{const z=c.methods.v2,a=z.truth_assisted,tr=document.createElement('tr');tr.innerHTML=`<td>${c.model}</td><td>${c.N}</td><td>${c.B}</td><td>${c.M}</td><td>${c.S}</td><td>${F(a.r1)}</td><td>${F(a.r2)}</td><td>${F(a.rl)}</td><td>${F(z.autonomous.rl)}</td>`;t.appendChild(tr)})}document.querySelector('#metric').onchange=render;document.querySelector('#model').onchange=render;render();assisted();</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Final repeated-run results for autonomous gradient-leakage reconstruction on Pythia models.">
+  <link rel="icon" href="data:,">
+  <title>FLattacks — final repeated-run results</title>
+  <style>
+    :root {
+      --ink: #171717;
+      --muted: #666;
+      --faint: #8a8a8a;
+      --line: #d9d9d9;
+      --soft-line: #e9e9e9;
+      --paper: #fff;
+      --wash: #f7f7f7;
+      --accent: #1668dc;
+      --radius: 7px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { color-scheme: light; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Geist, "Helvetica Neue", Arial, system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    button, summary { font: inherit; }
+    button { color: inherit; }
+    .shell { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .skip-link { position: absolute; left: -9999px; top: 8px; }
+    .skip-link:focus { left: 12px; z-index: 20; padding: 8px 12px; background: var(--paper); border: 1px solid var(--ink); }
+    header { padding: 54px 0 28px; border-bottom: 1px solid var(--line); }
+    .kicker { margin: 0 0 9px; color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { margin: 0 0 14px; max-width: 850px; font-size: clamp(30px, 5vw, 48px); line-height: 1.08; letter-spacing: -.04em; }
+    .intro { max-width: 790px; margin: 0; color: #3d3d3d; font-size: 17px; text-wrap: pretty; }
+    .intro + .intro { margin-top: 7px; }
+    .scope { display: flex; flex-wrap: wrap; gap: 7px 18px; margin: 23px 0 0; padding: 14px 0 0; border-top: 1px solid var(--soft-line); color: var(--muted); font-size: 13px; }
+    .scope strong { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+    main { padding-bottom: 36px; }
+    section { padding: 32px 0; border-bottom: 1px solid var(--line); }
+    h2 { margin: 0 0 7px; font-size: 21px; line-height: 1.25; letter-spacing: -.025em; }
+    h3 { margin: 0; font-size: 15px; }
+    p { margin: 0; }
+    .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+    .section-head p, .subtle { color: var(--muted); font-size: 13px; }
+    .definitions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin: 18px 0; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--line); }
+    .definition { min-height: 72px; padding: 12px 14px; background: var(--paper); }
+    .definition b { display: block; margin-bottom: 2px; font-size: 16px; }
+    .definition span { color: var(--muted); font-size: 13px; }
+    .status { min-height: 48px; display: flex; align-items: center; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--wash); color: var(--muted); font-size: 13px; }
+    .status.error { border-color: #b42318; color: #8f1d15; background: #fff8f7; }
+    .hidden { display: none !important; }
+
+    .chart-frame { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); padding: 13px 13px 8px; }
+    #chart { display: block; width: 100%; min-width: 680px; height: auto; }
+    .chart-legend { display: flex; flex-wrap: wrap; gap: 9px 18px; margin: 11px 2px 0; color: var(--muted); font-size: 12px; }
+    .legend-key { display: inline-flex; align-items: center; gap: 7px; }
+    .legend-line { width: 22px; height: 0; border-top: 2px solid var(--ink); }
+    .legend-line.film { border-color: var(--accent); }
+    .legend-line.v2 { border-color: #858585; border-top-style: dashed; }
+    .legend-ci { width: 12px; height: 12px; border-left: 1px solid #aaa; border-right: 1px solid #aaa; position: relative; }
+    .legend-ci::after { content: ""; position: absolute; top: 5px; left: 0; width: 12px; border-top: 1px solid #aaa; }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+    th, td { padding: 9px 10px; border-bottom: 1px solid var(--soft-line); text-align: left; vertical-align: middle; white-space: nowrap; }
+    thead th { background: var(--wash); color: #4a4a4a; font-weight: 650; }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:hover { background: #fafafa; }
+    td.method-result { min-width: 136px; }
+    .triplet { display: block; color: var(--ink); letter-spacing: .01em; }
+    .triplet-label { display: block; color: var(--faint); font-size: 10px; letter-spacing: .04em; text-transform: uppercase; }
+    .best { display: inline-block; margin-left: 5px; padding: 1px 5px; border-radius: 4px; background: #eaf2ff; color: #0d55b5; font-size: 9px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
+    .table-note { margin-top: 9px; color: var(--muted); font-size: 12px; }
+    .scroll-hint { display: none; margin: 7px 2px 0; color: var(--muted); font-size: 12px; }
+
+    .takeaways { margin: 16px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .takeaways li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--soft-line); }
+    .takeaways li:last-child { border-bottom: 0; }
+    .takeaways .number { color: var(--accent); font-weight: 700; }
+    .takeaways strong { display: block; margin-bottom: 2px; }
+    .takeaways p { color: #4a4a4a; }
+    .efficiency { margin-top: 13px; padding-top: 13px; border-top: 1px solid var(--soft-line); color: #414141; font-size: 13px; }
+    .oracle-note { margin-top: 18px; padding: 13px 14px; border: 1px solid var(--line); border-radius: var(--radius); color: #414141; font-size: 13px; }
+
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .tablist, .segmented { display: inline-flex; padding: 3px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--wash); }
+    .tablist button, .segmented button { min-height: 36px; padding: 6px 12px; border: 0; border-radius: 5px; background: transparent; cursor: pointer; font-size: 13px; }
+    .tablist button[aria-selected="true"], .segmented button[aria-pressed="true"] { background: var(--paper); color: var(--accent); box-shadow: 0 0 0 1px var(--line); font-weight: 650; }
+    button:focus-visible, summary:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .example { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .example-meta { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 10px 13px; border-bottom: 1px solid var(--line); background: var(--wash); color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+    .example-meta b { color: var(--ink); font-weight: 600; }
+    .example-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .example-block { min-width: 0; padding: 14px; }
+    .example-block + .example-block { border-left: 1px solid var(--line); }
+    .example-label { margin-bottom: 6px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .example-text { white-space: pre-wrap; overflow-wrap: anywhere; color: #2e2e2e; }
+    .metric-caveat { padding: 9px 13px; border-top: 1px solid var(--line); color: #704800; background: #fffaf0; font-size: 12px; }
+
+    details { border: 1px solid var(--line); border-radius: var(--radius); }
+    summary { cursor: pointer; padding: 12px 14px; font-weight: 650; }
+    details[open] summary { border-bottom: 1px solid var(--line); }
+    .lamp-summary { margin-bottom: 14px; max-width: 820px; color: #414141; }
+    .lamp-example { padding: 14px; }
+    .lamp-example dl { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0 0 12px; }
+    .lamp-example dt { color: var(--muted); font-size: 12px; }
+    .lamp-example dd { margin: 0; font-size: 12px; font-variant-numeric: tabular-nums; }
+    .lamp-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .lamp-pair > div { min-width: 0; padding: 12px; background: var(--wash); border-radius: 6px; }
+
+    .limitations { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; color: #444; font-size: 13px; }
+    footer { padding: 18px 0 28px; color: var(--muted); font-size: 12px; }
+    footer .shell { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 18px; }
+    code { padding: 1px 4px; border-radius: 4px; background: var(--wash); color: #444; font: 12px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; }
+
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 24px, var(--max)); }
+      header { padding-top: 38px; }
+      section { padding: 26px 0; }
+      .definitions { grid-template-columns: 1fr 1fr; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 5px; }
+      .example-grid, .lamp-pair, .limitations { grid-template-columns: 1fr; }
+      .example-block + .example-block { border-left: 0; border-top: 1px solid var(--line); }
+      .controls { justify-content: space-between; }
+      .tablist, .segmented { flex: 1 1 auto; }
+      .tablist button, .segmented button { flex: 1; min-height: 44px; }
+      .scroll-hint { display: block; }
+    }
+    @media (max-width: 430px) {
+      .definitions { grid-template-columns: 1fr; }
+      h1 { font-size: 34px; }
+      .scope { display: grid; grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to results</a>
+  <header>
+    <div class="shell">
+      <p class="kicker">Final repeated-run evaluation</p>
+      <h1>Autonomous reconstruction from language-model gradients</h1>
+      <p class="intro">FLattacks evaluates what three gradient-leakage methods reconstruct across eight Pythia victim configurations, with ten shared victim runs per cell.</p>
+      <p class="intro">The primary measure is autonomous soft-set ROUGE: it scores the emitted set against the reference set, penalizing both candidate flooding and missed references.</p>
+      <div class="scope" aria-label="Experiment scope">
+        <span><strong>80</strong> victim aggregates</span>
+        <span><strong>240</strong> autonomous evaluations</span>
+        <span><strong>10</strong> paired runs per cell</span>
+        <span><strong>8</strong> cells</span>
+        <span><strong>0</strong> recorded campaign failures</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="shell">
+    <section aria-labelledby="results-heading">
+      <div class="section-head">
+        <div>
+          <h2 id="results-heading">Autonomous results</h2>
+          <p>Mean soft-set ROUGE-L with 95% bootstrap confidence intervals.</p>
+        </div>
+        <a href="results.json">Download results JSON</a>
+      </div>
+
+      <div class="definitions" aria-label="Configuration notation">
+        <div class="definition"><b>N</b><span>source examples in the aggregate</span></div>
+        <div class="definition"><b>B</b><span>per-example repetition contribution</span></div>
+        <div class="definition"><b>M = N × B</b><span>total reconstructed sequence slots</span></div>
+        <div class="definition"><b>S</b><span>public maximum sequence length</span></div>
+      </div>
+
+      <div id="loading" class="status" role="status">Loading verified result artifacts…</div>
+      <div id="error" class="status error hidden" role="alert"></div>
+
+      <div id="results-content" class="hidden">
+        <div class="chart-frame">
+          <svg id="chart" viewBox="0 0 1000 330" role="img" aria-labelledby="chart-title chart-desc">
+            <title id="chart-title">Mean autonomous soft-set ROUGE-L by total sequence count</title>
+            <desc id="chart-desc">Separate panels compare DAGER, FILM and V2 for Pythia 160m and 410m. Thin whiskers show 95 percent bootstrap confidence intervals.</desc>
+          </svg>
+          <div class="chart-legend" aria-hidden="true">
+            <span class="legend-key"><i class="legend-line"></i>DAGER</span>
+            <span class="legend-key"><i class="legend-line film"></i>FILM</span>
+            <span class="legend-key"><i class="legend-line v2"></i>V2</span>
+            <span class="legend-key"><i class="legend-ci"></i>95% CI</span>
+          </div>
+        </div>
+        <p class="scroll-hint">Scroll horizontally to compare both model panels.</p>
+
+        <div class="section-head" style="margin-top: 23px">
+          <div>
+            <h3>Cell-level means</h3>
+            <p>Each method cell reports R1 / R2 / RL.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th scope="col">Model</th><th scope="col">N</th><th scope="col">B</th><th scope="col">M</th><th scope="col">S</th><th scope="col">DAGER</th><th scope="col">FILM</th><th scope="col">V2</th></tr>
+            </thead>
+            <tbody id="results-body"></tbody>
+          </table>
+        </div>
+        <p class="scroll-hint">Scroll horizontally to compare all three methods.</p>
+        <p class="table-note">Values are means over 10 shared victim runs. Candidate flooding and missed references are penalized. The one unsupported DAGER method outcome at the exact rank wall is retained as zero.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="takeaways-heading">
+      <h2 id="takeaways-heading">Three takeaways</h2>
+      <ol class="takeaways">
+        <li><span class="number">01</span><div><strong>DAGER is strongest on singleton victims; scores fall sharply in the larger tested cells.</strong><p>It leads both M=1 cells (RL 0.314 and 0.339), while RL is 0.042–0.061 in the tested M≥4 cells. N, B and S also vary across the matrix.</p></div></li>
+        <li><span class="number">02</span><div><strong>FILM is strongest at M=4, with support-type F1 1.000 but high-M undercoverage.</strong><p>It leads both M=4 cells (RL 0.192 and 0.133); missed-reference rates rise to 0.875–0.928 in the largest cells.</p></div></li>
+        <li><span class="number">03</span><div><strong>V2 preserves high local adjacency, but candidate flooding depresses autonomous set scores.</strong><p>Adjacency F1 stays between 0.484 and 0.711, while RL remains 0.028–0.037 because V2 emits many alternatives per reference.</p></div></li>
+      </ol>
+      <p class="efficiency"><strong>Efficiency.</strong> Pooled median attack time across 80 run-level measurements per method: DAGER 13.9s · FILM 53.4s · V2 166.8s. None of the 240 evaluations received nonzero full-exact-set F1.</p>
+      <p class="oracle-note"><strong>Truth-assisted V2 is an oracle diagnostic.</strong> It uses private references to assign and order fragments, so it is intentionally not plotted or presented as autonomous performance.</p>
+    </section>
+
+    <section aria-labelledby="examples-heading">
+      <div class="section-head">
+        <div>
+          <h2 id="examples-heading">Qualitative matched examples</h2>
+          <p>Inspect evaluator-matched predictions; these are not aggregate-set summaries.</p>
+        </div>
+        <a href="examples.json">Download examples JSON</a>
+      </div>
+      <div class="controls">
+        <div class="tablist" role="tablist" aria-label="Method">
+          <button id="tab-dager" type="button" role="tab" aria-selected="true" aria-controls="example-panel" data-method="dager">DAGER</button>
+          <button id="tab-film" type="button" role="tab" aria-selected="false" aria-controls="example-panel" tabindex="-1" data-method="film">FILM</button>
+          <button id="tab-v2" type="button" role="tab" aria-selected="false" aria-controls="example-panel" tabindex="-1" data-method="v2">V2</button>
+        </div>
+        <div class="segmented" aria-label="Example quality">
+          <button type="button" aria-pressed="true" data-quality="best">Best</button>
+          <button type="button" aria-pressed="false" data-quality="worst">Worst</button>
+        </div>
+      </div>
+      <article id="example-panel" class="example" role="tabpanel" aria-labelledby="tab-dager" tabindex="0">
+        <div class="example-meta">
+          <span>Cell <b id="example-cell"></b></span>
+          <span>Reference tokens <b id="example-truth-tokens"></b></span>
+          <span>Reconstruction tokens <b id="example-prediction-tokens"></b></span>
+          <span>Matched RL <b id="example-rl"></b></span>
+        </div>
+        <div class="example-grid">
+          <div class="example-block"><div class="example-label">Reference</div><p id="example-truth" class="example-text"></p></div>
+          <div class="example-block"><div class="example-label">Reconstruction</div><p id="example-prediction" class="example-text"></p></div>
+        </div>
+        <p class="metric-caveat"><strong>Matched-example RL is not set-level performance.</strong> It describes one assigned pair and does not include extra candidates or missed references.</p>
+      </article>
+    </section>
+
+    <section aria-labelledby="lamp-heading">
+      <h2 id="lamp-heading">LAMP causal pilot</h2>
+      <p class="lamp-summary">The current S-only causal development pilot executed successfully but recovered no content: R1/R2/RL = 0 and support F1 = 0.</p>
+      <details>
+        <summary>Show pilot example</summary>
+        <div class="lamp-example">
+          <dl>
+            <div><dt>Scope</dt><dd id="lamp-scope"></dd></div>
+            <div><dt>Reference tokens</dt><dd id="lamp-truth-tokens"></dd></div>
+            <div><dt>Prediction tokens</dt><dd id="lamp-prediction-tokens"></dd></div>
+            <div><dt>R1 / R2 / RL / support F1</dt><dd id="lamp-metrics"></dd></div>
+          </dl>
+          <div class="lamp-pair">
+            <div><div class="example-label">Reference</div><p id="lamp-truth" class="example-text"></p></div>
+            <div><div class="example-label">Reconstruction</div><p id="lamp-prediction" class="example-text"></p></div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="limits-heading">
+      <h2 id="limits-heading">Limitations and interpretation</h2>
+      <div class="limitations">
+        <p>The evaluated methods are adaptations: DAGER is adapted for Pythia/GPT-NeoX, FILM is a Pythia adaptation with autonomous reordering, and V2 emits autonomous fragments. One DAGER run was unsupported at the exact rank wall and retained as zero; this is a method-level outcome, not an infrastructure failure.</p>
+        <p>Ten paired victim runs per cell support uncertainty estimates, but the matrix covers two model sizes and eight prescribed configurations. None of the 240 evaluations received nonzero full-exact-set F1, so partial local or matched reconstruction must not be read as complete sequence recovery.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <span>FLattacks final repeated-run results</span>
+      <span id="provenance">Verified public artifacts</span>
+    </div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const METHOD_ORDER = ["dager", "film", "v2"];
+    const METHOD_NAMES = { dager: "DAGER", film: "FILM", v2: "V2" };
+    const SVG_NS = "http://www.w3.org/2000/svg";
+    let examplesData;
+    let selectedMethod = "dager";
+    let selectedQuality = "best";
+
+    const byId = (id) => document.getElementById(id);
+    const setText = (id, value) => { byId(id).textContent = String(value); };
+    const formatScore = (value) => Number(value).toFixed(3);
+
+    function assertIntegrity(data) {
+      const valid = data && Array.isArray(data.cells)
+        && data.cells.length === 8
+        && data.cells.every((cell) => cell.n_runs === 10)
+        && data.scope && data.scope.victim_aggregates === 80
+        && data.scope.autonomous_attack_evaluations === 240;
+      if (!valid) throw new Error("Data integrity check failed: expected 8 cells, 10 runs per cell, 80 victim aggregates, and 240 autonomous evaluations.");
+    }
+
+    function svgNode(name, attributes = {}, text = "") {
+      const node = document.createElementNS(SVG_NS, name);
+      Object.entries(attributes).forEach(([key, value]) => node.setAttribute(key, value));
+      if (text) node.textContent = text;
+      return node;
+    }
+
+    function renderChart(data) {
+      const svg = byId("chart");
+      Array.from(svg.children).forEach((child) => {
+        if (child.tagName !== "title" && child.tagName !== "desc") child.remove();
+      });
+
+      const panels = [
+        { model: "pythia-160m", label: "Pythia 160m", x: 55 },
+        { model: "pythia-410m", label: "Pythia 410m", x: 535 }
+      ];
+      const panelWidth = 410;
+      const top = 42;
+      const plotHeight = 225;
+      const yMax = 0.55;
+      const y = (value) => top + plotHeight - (Math.max(0, Math.min(yMax, value)) / yMax) * plotHeight;
+      const styles = {
+        dager: { stroke: "#171717", dash: "" },
+        film: { stroke: "#1668dc", dash: "" },
+        v2: { stroke: "#858585", dash: "6 4" }
+      };
+
+      panels.forEach((panel, panelIndex) => {
+        const cells = data.cells.filter((cell) => cell.model === panel.model).sort((a, b) => a.M - b.M);
+        const x = (m) => panel.x + (Math.log2(m) / Math.log2(32)) * panelWidth;
+
+        svg.appendChild(svgNode("text", { x: panel.x, y: 19, fill: "#171717", "font-size": "14", "font-weight": "650" }, panel.label));
+        [0, 0.1, 0.2, 0.3, 0.4, 0.5].forEach((tick) => {
+          const yy = y(tick);
+          svg.appendChild(svgNode("line", { x1: panel.x, x2: panel.x + panelWidth, y1: yy, y2: yy, stroke: tick === 0 ? "#bdbdbd" : "#e6e6e6", "stroke-width": "1" }));
+          if (panelIndex === 0) svg.appendChild(svgNode("text", { x: panel.x - 10, y: yy + 4, fill: "#737373", "font-size": "10", "text-anchor": "end" }, tick.toFixed(1)));
+        });
+
+        cells.forEach((cell) => {
+          const xx = x(cell.M);
+          svg.appendChild(svgNode("line", { x1: xx, x2: xx, y1: top + plotHeight, y2: top + plotHeight + 5, stroke: "#777" }));
+          svg.appendChild(svgNode("text", { x: xx, y: top + plotHeight + 19, fill: "#666", "font-size": "10", "text-anchor": "middle" }, String(cell.M)));
+        });
+
+        METHOD_ORDER.forEach((method) => {
+          const style = styles[method];
+          const points = cells.map((cell) => `${x(cell.M)},${y(cell.methods[method].soft_set_rouge_l_f1.mean)}`).join(" ");
+          svg.appendChild(svgNode("polyline", { points, fill: "none", stroke: style.stroke, "stroke-width": "2", "stroke-dasharray": style.dash }));
+          cells.forEach((cell) => {
+            const metric = cell.methods[method].soft_set_rouge_l_f1;
+            const xx = x(cell.M);
+            const lowY = y(metric.ci95[0]);
+            const highY = y(metric.ci95[1]);
+            svg.appendChild(svgNode("line", { x1: xx, x2: xx, y1: highY, y2: lowY, stroke: style.stroke, "stroke-opacity": ".42", "stroke-width": "1" }));
+            svg.appendChild(svgNode("line", { x1: xx - 3, x2: xx + 3, y1: highY, y2: highY, stroke: style.stroke, "stroke-opacity": ".42" }));
+            svg.appendChild(svgNode("line", { x1: xx - 3, x2: xx + 3, y1: lowY, y2: lowY, stroke: style.stroke, "stroke-opacity": ".42" }));
+            svg.appendChild(svgNode("circle", { cx: xx, cy: y(metric.mean), r: "3.2", fill: "#fff", stroke: style.stroke, "stroke-width": "1.7" }));
+          });
+        });
+
+        svg.appendChild(svgNode("text", { x: panel.x + panelWidth / 2, y: 312, fill: "#555", "font-size": "11", "text-anchor": "middle" }, "M = N × B"));
+      });
+      svg.appendChild(svgNode("text", { x: 13, y: 158, fill: "#555", "font-size": "11", "text-anchor": "middle", transform: "rotate(-90 13 158)" }, "Mean autonomous soft-set ROUGE-L"));
+    }
+
+    function appendCell(row, value, className = "") {
+      const cell = document.createElement("td");
+      if (className) cell.className = className;
+      cell.textContent = String(value);
+      row.appendChild(cell);
+      return cell;
+    }
+
+    function renderTable(data) {
+      const body = byId("results-body");
+      body.replaceChildren();
+      const sortedCells = [...data.cells].sort((a, b) => a.model.localeCompare(b.model) || a.M - b.M);
+      sortedCells.forEach((cell) => {
+        const row = document.createElement("tr");
+        appendCell(row, cell.model.replace("pythia-", ""));
+        [cell.N, cell.B, cell.M, cell.S].forEach((value) => appendCell(row, value));
+        const bestRL = Math.max(...METHOD_ORDER.map((method) => cell.methods[method].soft_set_rouge_l_f1.mean));
+        METHOD_ORDER.forEach((method) => {
+          const metrics = cell.methods[method];
+          const resultCell = appendCell(row, "", "method-result");
+          const label = document.createElement("span");
+          label.className = "triplet-label";
+          label.textContent = "R1 / R2 / RL";
+          const values = document.createElement("span");
+          values.className = "triplet";
+          values.textContent = ["1", "2", "l"].map((key) => formatScore(metrics[`soft_set_rouge_${key}_f1`].mean)).join(" / ");
+          resultCell.append(label, values);
+          if (metrics.soft_set_rouge_l_f1.mean === bestRL) {
+            const badge = document.createElement("span");
+            badge.className = "best";
+            badge.textContent = "Best RL";
+            values.appendChild(badge);
+          }
+        });
+        body.appendChild(row);
+      });
+    }
+
+    function renderExample() {
+      if (!examplesData) return;
+      const example = examplesData.methods[selectedMethod][selectedQuality];
+      setText("example-cell", example.cell);
+      setText("example-truth-tokens", example.truth_tokens);
+      setText("example-prediction-tokens", example.prediction_tokens);
+      setText("example-rl", formatScore(example.assignment_rouge_l_f1));
+      setText("example-truth", example.truth);
+      setText("example-prediction", example.prediction);
+      const panel = byId("example-panel");
+      panel.setAttribute("aria-labelledby", `tab-${selectedMethod}`);
+    }
+
+    function renderLamp(lamp) {
+      setText("lamp-scope", lamp.scope);
+      setText("lamp-truth-tokens", lamp.truth_tokens);
+      setText("lamp-prediction-tokens", lamp.prediction_tokens);
+      setText("lamp-metrics", [lamp.rouge_1_f1, lamp.rouge_2_f1, lamp.rouge_l_f1, lamp.support_f1].map(formatScore).join(" / "));
+      setText("lamp-truth", lamp.truth);
+      setText("lamp-prediction", lamp.prediction);
+    }
+
+    document.querySelectorAll('[role="tab"]').forEach((tab, index, tabs) => {
+      tab.addEventListener("click", () => {
+        selectedMethod = tab.dataset.method;
+        tabs.forEach((item) => {
+          const active = item === tab;
+          item.setAttribute("aria-selected", String(active));
+          item.tabIndex = active ? 0 : -1;
+        });
+        renderExample();
+      });
+      tab.addEventListener("keydown", (event) => {
+        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+        event.preventDefault();
+        const direction = event.key === "ArrowRight" ? 1 : -1;
+        tabs[(index + direction + tabs.length) % tabs.length].click();
+        tabs[(index + direction + tabs.length) % tabs.length].focus();
+      });
+    });
+
+    document.querySelectorAll("[data-quality]").forEach((button, _, buttons) => {
+      button.addEventListener("click", () => {
+        selectedQuality = button.dataset.quality;
+        buttons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        renderExample();
+      });
+    });
+
+    Promise.all([
+      fetch("results.json").then((response) => {
+        if (!response.ok) throw new Error(`Could not load results.json (${response.status}).`);
+        return response.json();
+      }),
+      fetch("examples.json").then((response) => {
+        if (!response.ok) throw new Error(`Could not load examples.json (${response.status}).`);
+        return response.json();
+      })
+    ]).then(([results, examples]) => {
+      assertIntegrity(results);
+      examplesData = examples;
+      renderChart(results);
+      renderTable(results);
+      renderExample();
+      renderLamp(examples.lamp);
+      setText("provenance", `Campaign ${results.campaign_id} · source ${results.source_commit.slice(0, 12)}`);
+      byId("loading").classList.add("hidden");
+      byId("results-content").classList.remove("hidden");
+    }).catch((error) => {
+      byId("loading").classList.add("hidden");
+      byId("error").textContent = error.message || "The verified result artifacts could not be loaded.";
+      byId("error").classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
